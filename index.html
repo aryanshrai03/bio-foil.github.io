@@ -8,11 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-        <i class="fas fa-moon"></i>
-    </button>
-
     <!-- Animated Background -->
     <div class="animated-bg">
         <div class="floating-shape shape1"></div>
@@ -35,11 +30,25 @@
                 <li><a href="#tech" class="nav-link">Tech Stack</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li class="nav-theme-toggle-wrapper-menu">
+                    <button class="nav-theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                        <span class="toggle-icon moon">🌙</span>
+                        <span class="toggle-icon sun">☀️</span>
+                        <span class="toggle-thumb"></span>
+                    </button>
+                </li>
             </ul>
-            <div class="hamburger">
+            <div class="mobile-nav-wrapper">
+                <button class="nav-theme-toggle nav-theme-toggle-mobile" id="themeToggleMobile" aria-label="Toggle theme">
+                    <span class="toggle-icon moon">🌙</span>
+                    <span class="toggle-icon sun">☀️</span>
+                    <span class="toggle-thumb"></span>
+                </button>
+                <div class="hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
+                </div>
             </div>
         </div>
     </nav>
@@ -63,7 +72,7 @@
             <p class="hero-focus">Currently focused on building AI-powered tools & Discord bots!</p>
             <div class="hero-buttons">
                 <a href="#projects" class="btn btn-primary">View Projects</a>
-                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                <a href="https://github.com/aryanshrai03" target="_blank" class="btn btn-secondary">GitHub Profile</a>
             </div>
             <div class="scroll-indicator">
                 <i class="fas fa-chevron-down"></i>
@@ -339,7 +348,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Foil (Aryansh Rai). All rights reserved.</p>
+            <p>&copy; 2025 Foil (Aryansh Rai). All rights reserved.</p>
             <p class="footer-quote">Coding let's you convert your imagination into an Art!</p>
             <div class="footer-social">
                 <a href="https://github.com/aryanshrai03" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
