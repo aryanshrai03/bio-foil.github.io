@@ -1,4 +1,5 @@
 const themeToggle = document.getElementById('themeToggle');
+const themeToggleMobile = document.getElementById('themeToggleMobile');
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
@@ -6,22 +7,18 @@ const navLinks = document.querySelectorAll('.nav-link');
 const savedTheme = localStorage.getItem('theme') || 'dark';
 if (savedTheme === 'light') {
     document.body.setAttribute('data-theme', 'light');
-    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
 }
 
-themeToggle.addEventListener('click', () => {
+const toggleTheme = () => {
     const currentTheme = document.body.getAttribute('data-theme');
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
 
     document.body.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
+};
 
-    if (newTheme === 'light') {
-        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-    } else {
-        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-    }
-});
+themeToggle.addEventListener('click', toggleTheme);
+themeToggleMobile.addEventListener('click', toggleTheme);
 
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
