@@ -985,3 +985,38 @@ body {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* Style for the sound toggle button */
+.nav-sound-toggle-wrapper-menu {
+    margin-left: 20px; /* Spacing between the sound toggle and other buttons */
+}
+
+.nav-sound-toggle {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.sound-icon {
+    display: none;
+}
+
+.sound-icon.play {
+    display: inline-block;
+}
+
+.sound-icon.mute {
+    display: none;
+}
+
+.nav-sound-toggle.muted .sound-icon.play {
+    display: none;
+}
+
+.nav-sound-toggle.muted .sound-icon.mute {
+    display: inline-block;
+}
+
