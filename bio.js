@@ -267,33 +267,28 @@ console.log('%cWelcome to my portfolio!', 'color: #1e40af; font-size: 16px;');
 console.log('%cFeel free to explore and reach out if you want to collaborate!', 'color: #0891b2; font-size: 14px;');
 
 
-// Sound toggle functionality
-const soundToggleButton = document.getElementById('soundToggle');
-const backgroundMusic = document.getElementById('backgroundMusic');
-
-soundToggleButton.addEventListener('click', function() {
-    if (backgroundMusic.paused) {
-        backgroundMusic.play(); // Play the music
-        soundToggleButton.classList.remove('muted');
-    } else {
-        backgroundMusic.pause(); // Pause the music
-        soundToggleButton.classList.add('muted');
-    }
-});
-
-
-// CLICK-TO-ENTER AUTOPLAY SYSTEM
+// Elements
 const enterScreen = document.getElementById("enterScreen");
 const bgMusic = document.getElementById("backgroundMusic");
+const soundToggle = document.getElementById("soundToggle");
 
+// CLICK TO ENTER (starts music)
 enterScreen.addEventListener("click", () => {
-
-    // Try to play the music
+    // Start music
     bgMusic.volume = 1.0;
-    bgMusic.play().catch(err => {
-        console.log("Autoplay blocked:", err);
-    });
+    bgMusic.play().catch(err => console.log("Autoplay blocked:", err));
 
-    // Hide the entry screen
+    // Fade out & hide entry screen
     enterScreen.classList.add("hidden");
+});
+
+// SOUND TOGGLE BUTTON (🔊 / 🔇)
+soundToggle.addEventListener("click", () => {
+    if (bgMusic.paused) {
+        bgMusic.play();
+        soundToggle.classList.remove("muted"); // show 🔊
+    } else {
+        bgMusic.pause();
+        soundToggle.classList.add("muted"); // show 🔇
+    }
 });
