@@ -265,3 +265,19 @@ animateCircles();
 console.log('%c👋 Hey there!', 'color: #3b82f6; font-size: 24px; font-weight: bold;');
 console.log('%cWelcome to my portfolio!', 'color: #1e40af; font-size: 16px;');
 console.log('%cFeel free to explore and reach out if you want to collaborate!', 'color: #0891b2; font-size: 14px;');
+
+
+// Sound toggle functionality
+const soundToggleButton = document.getElementById('soundToggle');
+const backgroundMusic = document.getElementById('backgroundMusic');
+
+soundToggleButton.addEventListener('click', function() {
+    if (backgroundMusic.paused) {
+        backgroundMusic.play(); // Play the music
+        soundToggleButton.classList.remove('muted');
+    } else {
+        backgroundMusic.pause(); // Pause the music
+        soundToggleButton.classList.add('muted');
+    }
+});
+
