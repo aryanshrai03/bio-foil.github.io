@@ -1017,99 +1017,87 @@ body {
     }
 }
 
-/* Style for the sound toggle button */
+/* --------------------------------------------- */
+/* SOUND TOGGLE — WRAPPER                        */
+/* --------------------------------------------- */
 .nav-sound-toggle-wrapper-menu {
-    margin-left: 20px; /* Spacing between the sound toggle and other buttons */
-}
-
-.nav-sound-toggle {
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
+    margin-left: 20px;
     display: flex;
     align-items: center;
 }
 
-.sound-icon {
-    display: none;
-}
 
-.sound-icon.play {
-    display: inline-block;
-}
-
-.sound-icon.mute {
-    display: none;
-}
-
-.nav-sound-toggle.muted .sound-icon.play {
-    display: none;
-}
-
-.nav-sound-toggle.muted .sound-icon.mute {
-    display: inline-block;
-}
-
-/* Sound Toggle Switch Matching Theme Toggle */
-.sound-switch {
+/* --------------------------------------------- */
+/* SOUND SWITCH BUTTON                            */
+/* --------------------------------------------- */
+.nav-sound-toggle {
     position: relative;
     width: 60px;
     height: 30px;
-    background: #0b0f2d; /* same as your theme toggle background */
-    border-radius: 50px;
+    background: #0b0f2d; /* same dark-blue base as your theme toggle */
+    border-radius: 40px;
     border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
-    padding: 0 5px;
-    transition: background 0.3s ease;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+    justify-content: space-between;
+    padding: 0 8px;
+    box-shadow: 0 0 18px rgba(0, 80, 255, 0.35); /* glowing blue */
+    transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
-.sound-switch .sound-icon {
-    position: absolute;
-    font-size: 16px;
+
+/* --------------------------------------------- */
+/* ICONS (🔊 and 🔇)                              */
+/* --------------------------------------------- */
+.nav-sound-toggle .sound-icon {
+    font-size: 17px;
+    color: #ffffff;
+    z-index: 2;
     transition: opacity 0.3s ease;
-    color: white;
+    user-select: none;
 }
 
-.sound-switch .icon-on {
-    left: 10px;
-    opacity: 1;
+.nav-sound-toggle .sound-on {
+    opacity: 1;  /* visible by default */
 }
 
-.sound-switch .icon-off {
-    right: 10px;
-    opacity: 0;
+.nav-sound-toggle .sound-off {
+    opacity: 0;  /* hidden by default */
 }
 
-/* The white moving thumb circle */
-.sound-switch .sound-thumb {
+
+/* --------------------------------------------- */
+/* THUMB (white circle slider)                    */
+/* --------------------------------------------- */
+.nav-sound-toggle .sound-thumb {
     position: absolute;
     width: 26px;
     height: 26px;
-    background: white;
+    background: #ffffff;
     border-radius: 50%;
-    left: 2px;
+    left: 3px;
     transition: left 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
-/* When muted — toggle on right */
-.sound-switch.muted {
-    background: #151a3f; /* darker tone like your dark theme */
+
+/* --------------------------------------------- */
+/* MUTED STATE (when 🔇 is active)                */
+/* --------------------------------------------- */
+.nav-sound-toggle.muted {
+    background: #151a3f; /* darker, like your night mode toggle */
+    box-shadow: 0 0 18px rgba(0, 50, 255, 0.25);
 }
 
-.sound-switch.muted .sound-thumb {
-    left: 32px;
+.nav-sound-toggle.muted .sound-thumb {
+    left: 31px; /* slide to right */
 }
 
-.sound-switch.muted .icon-on {
+.nav-sound-toggle.muted .sound-on {
     opacity: 0;
 }
 
-.sound-switch.muted .icon-off {
+.nav-sound-toggle.muted .sound-off {
     opacity: 1;
 }
-
