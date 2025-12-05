@@ -282,16 +282,18 @@ soundToggleButton.addEventListener('click', function() {
 });
 
 
-// Auto-play music after first user interaction
+// CLICK-TO-ENTER AUTOPLAY SYSTEM
+const enterScreen = document.getElementById("enterScreen");
 const bgMusic = document.getElementById("backgroundMusic");
 
-function enableAudio() {
-    bgMusic.play().catch(() => {});
-    document.removeEventListener("click", enableAudio);
-    document.removeEventListener("scroll", enableAudio);
-}
+enterScreen.addEventListener("click", () => {
 
-document.addEventListener("click", enableAudio);
-document.addEventListener("scroll", enableAudio);
+    // Try to play the music
+    bgMusic.volume = 1.0;
+    bgMusic.play().catch(err => {
+        console.log("Autoplay blocked:", err);
+    });
 
-
+    // Hide the entry screen
+    enterScreen.classList.add("hidden");
+});
