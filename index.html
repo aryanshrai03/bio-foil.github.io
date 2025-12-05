@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <audio id="backgroundMusic" loop autoplay>
+    <source src="main.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+
     <!-- Animated Background -->
     <div class="animated-bg">
         <div class="floating-shape shape1"></div>
@@ -25,6 +30,14 @@
                 <span>Foil</span>
             </div>
             <ul class="nav-menu">
+                <!-- Add this below the theme toggle button inside the <ul class="nav-menu"> -->
+<li class="nav-sound-toggle-wrapper-menu">
+    <button class="nav-sound-toggle" id="soundToggle" aria-label="Toggle Sound">
+        <span class="sound-icon play">🔊</span>
+        <span class="sound-icon mute">🔇</span>
+    </button>
+</li>
+
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#tech" class="nav-link">Tech Stack</a></li>
