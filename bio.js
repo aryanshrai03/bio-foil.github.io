@@ -281,3 +281,17 @@ soundToggleButton.addEventListener('click', function() {
     }
 });
 
+
+// Auto-play music after first user interaction
+const bgMusic = document.getElementById("backgroundMusic");
+
+function enableAudio() {
+    bgMusic.play().catch(() => {});
+    document.removeEventListener("click", enableAudio);
+    document.removeEventListener("scroll", enableAudio);
+}
+
+document.addEventListener("click", enableAudio);
+document.addEventListener("scroll", enableAudio);
+
+
