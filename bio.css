@@ -1051,3 +1051,65 @@ body {
     display: inline-block;
 }
 
+/* Sound Toggle Switch Matching Theme Toggle */
+.sound-switch {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background: #0b0f2d; /* same as your theme toggle background */
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+    transition: background 0.3s ease;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+}
+
+.sound-switch .sound-icon {
+    position: absolute;
+    font-size: 16px;
+    transition: opacity 0.3s ease;
+    color: white;
+}
+
+.sound-switch .icon-on {
+    left: 10px;
+    opacity: 1;
+}
+
+.sound-switch .icon-off {
+    right: 10px;
+    opacity: 0;
+}
+
+/* The white moving thumb circle */
+.sound-switch .sound-thumb {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    background: white;
+    border-radius: 50%;
+    left: 2px;
+    transition: left 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* When muted — toggle on right */
+.sound-switch.muted {
+    background: #151a3f; /* darker tone like your dark theme */
+}
+
+.sound-switch.muted .sound-thumb {
+    left: 32px;
+}
+
+.sound-switch.muted .icon-on {
+    opacity: 0;
+}
+
+.sound-switch.muted .icon-off {
+    opacity: 1;
+}
+
