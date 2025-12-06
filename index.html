@@ -6,6 +6,7 @@
     <meta name="description" content="Foil (Aryansh Rai) - Full-Stack Developer & AI Innovator based in India. Creator of FoilAI, VroAI, and specialized Discord bots.">
     <meta name="keywords" content="Foil, Aryansh Rai, Full-Stack Developer, AI Enthusiast, FoilAI, VroAI, Web Developer India, Portfolio, AI Tools">
     <meta name="author" content="Aryansh Rai">
+    <meta name="theme-color" content="#1A2A80">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -14,12 +15,19 @@
     <meta property="og:description" content="Coding let's you convert your imagination into an Art!">
     <meta property="og:image" content="https://www.aryansh.site/icon.jpg">
 
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://foilai.in/">
+    <meta property="twitter:title" content="Foil - Full-Stack Developer & AI Innovator">
+    <meta property="twitter:description" content="Coding let's you convert your imagination into an Art!">
+    <meta property="twitter:image" content="https://www.aryansh.site/icon.jpg">
+
     <title>Foil | Aryansh Rai - AI Innovator & Developer</title>
     
     <!-- Favicon -->
     <link rel="icon" type="image/jpg" href="https://www.aryansh.site/icon.jpg">
     
-    <!-- Fonts & Icons -->
+    <!-- Fonts & Icons (with font-display: swap for performance) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -35,22 +43,21 @@
                 extend: {
                     colors: {
                         brand: {
-                            dark: '#1A2A80',    // Deep Blue (Backgrounds)
-                            primary: '#3B38A0', // Vibrant Blue (Cards/Buttons)
-                            secondary: '#7A85C1', // Soft Blue (Borders/Text)
-                            light: '#B2B0E8',   // Pale Lavender (Highlights)
+                            dark: '#1A2A80',    // Deep Blue
+                            primary: '#3B38A0', // Vibrant Blue
+                            secondary: '#7A85C1', // Soft Blue
+                            light: '#B2B0E8',   // Pale Lavender
                             accent: '#ffffff'
                         }
                     },
                     fontFamily: {
                         sans: ['Montserrat', 'sans-serif'],
-                        mono: ['Fira Code', 'monospace'], // For Coding Theme
+                        mono: ['Fira Code', 'monospace'],
                     },
                     animation: {
                         'blob': 'blob 7s infinite',
                         'float': 'float 6s ease-in-out infinite',
                         'wave': 'wave 2.5s infinite',
-                        'glow': 'glow 2s ease-in-out infinite alternate',
                     },
                     keyframes: {
                         blob: {
@@ -72,10 +79,6 @@
                             '50%': { transform: 'rotate(10deg)' },
                             '60%': { transform: 'rotate(0deg)' },
                             '100%': { transform: 'rotate(0deg)' },
-                        },
-                        glow: {
-                            'from': { boxShadow: '0 0 10px #3B38A0' },
-                            'to': { boxShadow: '0 0 20px #B2B0E8' }
                         }
                     }
                 }
@@ -83,8 +86,28 @@
         }
     </script>
 
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aryansh Rai",
+      "alternateName": "Foil",
+      "url": "https://foilai.in",
+      "image": "https://www.aryansh.site/icon.jpg",
+      "jobTitle": "Full-Stack Developer",
+      "knowsAbout": ["AI", "Web Development", "Discord Bots", "SaaS"],
+      "sameAs": [
+        "https://github.com/aryanshrai03",
+        "https://discord.com/users/1252101579855630346",
+        "https://instagram.com/real.foil",
+        "https://www.reddit.com/user/vroai"
+      ]
+    }
+    </script>
+
     <style>
-        /* Custom Utilities & Animations */
+        /* Custom Utilities */
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: #1A2A80;
@@ -94,15 +117,14 @@
 
         /* Coding Theme Scrollbar */
         ::-webkit-scrollbar {
-            width: 10px;
+            width: 8px;
         }
         ::-webkit-scrollbar-track {
             background: #0f184d;
         }
         ::-webkit-scrollbar-thumb {
             background: #3B38A0;
-            border-radius: 5px;
-            border: 2px solid #1A2A80;
+            border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
             background: #7A85C1;
@@ -151,12 +173,15 @@
             z-index: -1;
             overflow: hidden;
             pointer-events: none;
+            /* Performance Optimization */
+            transform: translateZ(0); 
         }
         .floating-shape {
             position: absolute;
             filter: blur(90px);
             opacity: 0.3;
             animation: blob 10s infinite;
+            will-change: transform;
         }
         .shape1 { top: -10%; left: -10%; width: 500px; height: 500px; background: #3B38A0; animation-delay: 0s; }
         .shape2 { bottom: -10%; right: -10%; width: 400px; height: 400px; background: #7A85C1; animation-delay: 2s; }
@@ -176,32 +201,35 @@
         /* Profile Image Glow */
         .profile-ring {
             box-shadow: 0 0 50px rgba(122, 133, 193, 0.5);
-            transition: all 0.5s ease;
+            transition: box-shadow 0.3s ease;
         }
-        .profile-ring:hover {
-            box-shadow: 0 0 70px rgba(178, 176, 232, 0.8);
-            transform: scale(1.02);
-        }
-
-        /* Reveal Animation */
+        
+        /* Reveal Animation - Optimized */
         .reveal {
             opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
         }
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
+        
+        /* Content Visibility optimization for large pages */
+        section {
+            content-visibility: auto;
+            contain-intrinsic-size: 800px;
+        }
 
-        /* Card Hover Effect - Coding Theme */
+        /* Card Hover Effect */
         .card-hover-effect {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
         .card-hover-effect:hover {
-            transform: translateY(-8px);
+            transform: translateY(-5px);
             border-color: #B2B0E8;
-            box-shadow: 0 10px 40px -10px rgba(122, 133, 193, 0.5);
+            box-shadow: 0 10px 30px -5px rgba(122, 133, 193, 0.3);
         }
     </style>
 </head>
@@ -213,55 +241,55 @@
     </audio>
 
     <!-- Click-to-Enter Screen -->
-    <div id="enterScreen" class="enter-screen">
+    <div id="enterScreen" class="enter-screen" role="button" aria-label="Click to enter portfolio" tabindex="0">
         <div class="enter-content text-center px-4">
-            <div class="mb-4 text-6xl animate-bounce">👇</div>
-            <h1 class="text-3xl md:text-5xl font-bold text-brand-light tracking-wider font-mono">&lt; SYSTEM_INIT /&gt;</h1>
-            <p class="text-brand-secondary mt-4 text-sm tracking-[0.4em] uppercase">Click to Initialize Portfolio</p>
+            <div class="mb-4 text-5xl md:text-6xl animate-bounce">👆</div>
+            <h1 class="text-2xl md:text-5xl font-bold text-brand-light tracking-wider font-mono">&lt; SYSTEM_INIT /&gt;</h1>
+            <p class="text-brand-secondary mt-4 text-xs md:text-sm tracking-[0.4em] uppercase">Click to Initialize Portfolio</p>
         </div>
     </div>
 
     <!-- Animated Background -->
-    <div class="animated-bg">
+    <div class="animated-bg" aria-hidden="true">
         <div class="floating-shape shape1 rounded-full"></div>
         <div class="floating-shape shape2 rounded-full"></div>
         <div class="floating-shape shape3 rounded-full"></div>
     </div>
 
     <!-- Back to Top Button -->
-    <button id="backToTop" aria-label="Back to top" class="fixed bottom-8 right-8 z-40 bg-brand-primary text-white w-12 h-12 rounded-lg shadow-xl translate-y-20 opacity-0 transition-all duration-300 hover:bg-brand-light hover:text-brand-dark hover:-translate-y-1 flex items-center justify-center border border-brand-secondary/30">
+    <button id="backToTop" aria-label="Scroll back to top" class="fixed bottom-6 right-6 z-40 bg-brand-primary text-white w-10 h-10 md:w-12 md:h-12 rounded-lg shadow-xl translate-y-20 opacity-0 transition-all duration-300 hover:bg-brand-light hover:text-brand-dark hover:-translate-y-1 flex items-center justify-center border border-brand-secondary/30 focus:outline-none focus:ring-2 focus:ring-brand-light">
         <i class="fas fa-terminal"></i>
     </button>
 
     <!-- Navigation -->
-    <nav class="navbar fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-[94%] max-w-6xl transition-all duration-300">
-        <div class="floating-nav rounded-full px-6 py-3 flex justify-between items-center">
+    <nav class="navbar fixed top-4 md:top-6 left-1/2 transform -translate-x-1/2 z-50 w-[95%] md:w-[94%] max-w-6xl transition-all duration-300">
+        <div class="floating-nav rounded-full px-4 md:px-6 py-3 flex justify-between items-center">
             <!-- Logo -->
-            <a href="#home" aria-label="Go to Home" class="logo flex items-center gap-3 group">
-                <div class="relative w-10 h-10 rounded-full overflow-hidden border-2 border-brand-light group-hover:animate-spin">
+            <a href="#home" aria-label="Go to Home Section" class="logo flex items-center gap-3 group focus:outline-none">
+                <div class="relative w-8 h-8 md:w-10 md:h-10 rounded-full overflow-hidden border-2 border-brand-light group-hover:animate-spin">
                     <img src="https://www.aryansh.site/icon.jpg" alt="Foil Logo" class="w-full h-full object-cover">
                 </div>
-                <span class="font-bold text-xl tracking-wide text-brand-light group-hover:text-white transition-colors font-mono">./Foil</span>
+                <span class="font-bold text-lg md:text-xl tracking-wide text-brand-light group-hover:text-white transition-colors font-mono">./Foil</span>
             </a>
 
             <!-- Desktop Menu -->
             <ul class="nav-menu hidden md:flex items-center gap-8 text-sm font-semibold text-brand-light/90">
-                <li><a href="#home" class="nav-link hover:text-white hover:underline decoration-brand-secondary underline-offset-4 transition-all" aria-label="Home Section">Home</a></li>
-                <li><a href="#about" class="nav-link hover:text-white hover:underline decoration-brand-secondary underline-offset-4 transition-all" aria-label="About Section">About</a></li>
-                <li><a href="#expertise" class="nav-link hover:text-white hover:underline decoration-brand-secondary underline-offset-4 transition-all" aria-label="Expertise Section">Tech Stack</a></li>
-                <li><a href="#projects" class="nav-link hover:text-white hover:underline decoration-brand-secondary underline-offset-4 transition-all" aria-label="Projects Section">Projects</a></li>
-                <li><a href="#contact" class="nav-link hover:text-white hover:underline decoration-brand-secondary underline-offset-4 transition-all" aria-label="Contact Section">Contact</a></li>
+                <li><a href="#home" class="nav-link hover:text-white hover:underline decoration-brand-secondary underline-offset-4 transition-all focus:text-white" aria-label="Navigate to Home">Home</a></li>
+                <li><a href="#about" class="nav-link hover:text-white hover:underline decoration-brand-secondary underline-offset-4 transition-all focus:text-white" aria-label="Navigate to About">About</a></li>
+                <li><a href="#expertise" class="nav-link hover:text-white hover:underline decoration-brand-secondary underline-offset-4 transition-all focus:text-white" aria-label="Navigate to Skills">Tech Stack</a></li>
+                <li><a href="#projects" class="nav-link hover:text-white hover:underline decoration-brand-secondary underline-offset-4 transition-all focus:text-white" aria-label="Navigate to Projects">Projects</a></li>
+                <li><a href="#contact" class="nav-link hover:text-white hover:underline decoration-brand-secondary underline-offset-4 transition-all focus:text-white" aria-label="Navigate to Contact">Contact</a></li>
             </ul>
 
             <!-- Controls -->
             <div class="flex items-center gap-4">
-                <button class="w-10 h-10 rounded-full bg-brand-primary/20 flex items-center justify-center hover:bg-brand-primary/40 transition-all border border-brand-secondary/30 text-brand-light" id="soundToggle" aria-label="Toggle Sound">
+                <button class="w-10 h-10 rounded-full bg-brand-primary/20 flex items-center justify-center hover:bg-brand-primary/40 transition-all border border-brand-secondary/30 text-brand-light focus:outline-none focus:ring-2 focus:ring-brand-light" id="soundToggle" aria-label="Toggle Background Music">
                     <span class="sound-icon sound-on hidden"><i class="fas fa-volume-up"></i></span>
                     <span class="sound-icon sound-off"><i class="fas fa-volume-mute"></i></span>
                 </button>
                 
                 <div class="md:hidden">
-                    <button class="hamburger text-brand-light text-2xl focus:outline-none p-2" aria-label="Open Menu">
+                    <button class="hamburger text-brand-light text-2xl focus:outline-none p-2" aria-label="Open Mobile Menu" aria-expanded="false" aria-controls="mobileMenu">
                         <i class="fas fa-bars"></i>
                     </button>
                 </div>
@@ -269,58 +297,58 @@
         </div>
         
         <!-- Mobile Dropdown -->
-        <div id="mobileMenu" class="hidden absolute top-20 left-0 w-full glass-panel rounded-2xl p-6 flex-col gap-4 text-center md:hidden border border-brand-secondary/30 shadow-2xl backdrop-blur-3xl bg-brand-dark/90">
-            <a href="#home" class="block py-3 text-brand-light hover:bg-brand-primary/40 rounded-xl transition-colors font-mono" aria-label="Mobile Home Link">_home</a>
-            <a href="#about" class="block py-3 text-brand-light hover:bg-brand-primary/40 rounded-xl transition-colors font-mono" aria-label="Mobile About Link">_about</a>
-            <a href="#expertise" class="block py-3 text-brand-light hover:bg-brand-primary/40 rounded-xl transition-colors font-mono" aria-label="Mobile Expertise Link">_skills</a>
-            <a href="#projects" class="block py-3 text-brand-light hover:bg-brand-primary/40 rounded-xl transition-colors font-mono" aria-label="Mobile Projects Link">_projects</a>
-            <a href="#contact" class="block py-3 text-brand-light hover:bg-brand-primary/40 rounded-xl transition-colors font-mono" aria-label="Mobile Contact Link">_contact</a>
+        <div id="mobileMenu" class="hidden absolute top-20 left-0 w-full glass-panel rounded-2xl p-6 flex-col gap-4 text-center md:hidden border border-brand-secondary/30 shadow-2xl backdrop-blur-3xl bg-brand-dark/95">
+            <a href="#home" class="block py-3 text-brand-light hover:bg-brand-primary/40 rounded-xl transition-colors font-mono text-lg" aria-label="Mobile Home Link">_home</a>
+            <a href="#about" class="block py-3 text-brand-light hover:bg-brand-primary/40 rounded-xl transition-colors font-mono text-lg" aria-label="Mobile About Link">_about</a>
+            <a href="#expertise" class="block py-3 text-brand-light hover:bg-brand-primary/40 rounded-xl transition-colors font-mono text-lg" aria-label="Mobile Expertise Link">_skills</a>
+            <a href="#projects" class="block py-3 text-brand-light hover:bg-brand-primary/40 rounded-xl transition-colors font-mono text-lg" aria-label="Mobile Projects Link">_projects</a>
+            <a href="#contact" class="block py-3 text-brand-light hover:bg-brand-primary/40 rounded-xl transition-colors font-mono text-lg" aria-label="Mobile Contact Link">_contact</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero min-h-screen flex items-center justify-center pt-28 pb-10 relative z-10 px-4">
+    <section id="home" class="hero min-h-screen flex items-center justify-center pt-28 pb-10 relative z-10 px-4 overflow-hidden">
         <div class="hero-content container mx-auto text-center">
-            <div class="profile-image-container relative inline-block mb-10 animate-float">
+            <div class="profile-image-container relative inline-block mb-8 md:mb-10 animate-float">
                 <div class="absolute inset-0 bg-brand-primary blur-3xl opacity-30 rounded-full transform scale-125 animate-pulse"></div>
-                <img src="https://www.aryansh.site/icon.jpg" alt="Foil Profile" class="profile-img relative w-40 h-40 md:w-56 md:h-56 rounded-full border-[4px] border-brand-secondary/50 object-cover profile-ring shadow-2xl">
-                <div class="absolute bottom-1 right-5 bg-green-500 w-6 h-6 rounded-full border-4 border-brand-dark animate-ping" style="animation-duration: 2s;"></div>
-                <div class="absolute bottom-1 right-5 bg-green-500 w-6 h-6 rounded-full border-4 border-brand-dark"></div>
+                <img src="https://www.aryansh.site/icon.jpg" alt="Foil Profile Picture" class="profile-img relative w-36 h-36 md:w-56 md:h-56 rounded-full border-[4px] border-brand-secondary/50 object-cover profile-ring shadow-2xl">
+                <div class="absolute bottom-1 right-5 bg-green-500 w-5 h-5 md:w-6 md:h-6 rounded-full border-4 border-brand-dark animate-ping" style="animation-duration: 2s;"></div>
+                <div class="absolute bottom-1 right-5 bg-green-500 w-5 h-5 md:w-6 md:h-6 rounded-full border-4 border-brand-dark"></div>
             </div>
             
             <div class="inline-block px-4 py-1 rounded-full bg-brand-primary/20 border border-brand-secondary/30 mb-6 backdrop-blur-sm">
                 <span class="text-brand-light text-xs font-mono tracking-widest">HELLO_WORLD</span>
             </div>
 
-            <h1 class="hero-title text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 tracking-tight text-white leading-tight">
-                <span class="inline-block animate-wave origin-bottom-right">👋</span> Hey, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-secondary via-brand-light to-white">Foil</span>
+            <h1 class="hero-title text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 tracking-tight text-white leading-tight">
+                <span class="inline-block animate-wave origin-bottom-right" role="img" aria-label="Waving Hand">👋</span> Hey, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-secondary via-brand-light to-white">Foil</span>
             </h1>
             
-            <h2 class="hero-subtitle text-xl md:text-2xl text-brand-secondary font-medium mb-6">Aryansh Rai</h2>
+            <h2 class="hero-subtitle text-lg md:text-2xl text-brand-secondary font-medium mb-6">Aryansh Rai</h2>
             
-            <div class="typing-container h-8 mb-8 text-lg md:text-xl font-mono text-brand-light/90 bg-black/20 inline-block px-4 py-1 rounded">
-                <span class="text-green-400">$</span> <span class="typing-text"></span><span class="cursor"></span>
+            <div class="typing-container h-12 mb-8 text-base md:text-xl font-mono text-brand-light/90 bg-black/20 inline-flex items-center px-4 py-1 rounded max-w-full overflow-hidden">
+                <span class="text-green-400 mr-2">$</span> <span class="typing-text truncate"></span><span class="cursor"></span>
             </div>
             
-            <p class="hero-description max-w-2xl mx-auto text-gray-300 text-base md:text-lg mb-10 leading-relaxed font-light">
+            <p class="hero-description max-w-2xl mx-auto text-gray-300 text-sm md:text-lg mb-10 leading-relaxed font-light px-2">
                 Full-Stack Developer from India 🇮🇳 building <span class="text-brand-light font-semibold border-b border-brand-light/30 border-dashed">Enterprise AI Tools</span> & robust web apps.
             </p>
             
-            <div class="hero-buttons flex flex-wrap justify-center gap-4">
-                <a href="#projects" aria-label="View Projects" class="btn btn-primary px-8 py-3 rounded-lg bg-brand-primary hover:bg-brand-light hover:text-brand-dark text-white font-bold shadow-[0_0_20px_rgba(59,56,160,0.4)] transition-all transform hover:-translate-y-1 font-mono">
-                    <i class="fas fa-code mr-2"></i> View_Projects
+            <div class="hero-buttons flex flex-col sm:flex-row justify-center gap-4 w-full sm:w-auto px-6">
+                <a href="#projects" aria-label="Scroll to Projects" class="btn btn-primary px-8 py-3 rounded-lg bg-brand-primary hover:bg-brand-light hover:text-brand-dark text-white font-bold shadow-[0_0_20px_rgba(59,56,160,0.4)] transition-all transform hover:-translate-y-1 font-mono text-center">
+                    <i class="fas fa-code mr-2" aria-hidden="true"></i> View_Projects
                 </a>
-                <a href="https://github.com/aryanshrai03" target="_blank" aria-label="Github" class="btn btn-secondary px-8 py-3 rounded-lg bg-transparent border border-brand-secondary text-brand-light hover:bg-brand-secondary/20 hover:text-white font-bold transition-all transform hover:-translate-y-1 font-mono">
-                    <i class="fab fa-github mr-2"></i> GitHub
+                <a href="https://github.com/aryanshrai03" target="_blank" aria-label="Visit My GitHub Profile" class="btn btn-secondary px-8 py-3 rounded-lg bg-transparent border border-brand-secondary text-brand-light hover:bg-brand-secondary/20 hover:text-white font-bold transition-all transform hover:-translate-y-1 font-mono text-center">
+                    <i class="fab fa-github mr-2" aria-hidden="true"></i> GitHub
                 </a>
             </div>
         </div>
     </section>
 
     <!-- About & Donation Section -->
-    <section id="about" class="about py-20 relative z-10">
+    <section id="about" class="about py-16 md:py-20 relative z-10">
         <div class="container mx-auto px-6">
-            <div class="section-header text-center mb-16 reveal">
+            <div class="section-header text-center mb-12 reveal">
                 <h2 class="section-title text-3xl md:text-4xl font-bold text-white mb-4 font-mono">
                     <span class="text-brand-secondary">01.</span> About Me
                 </h2>
@@ -329,14 +357,14 @@
 
             <div class="about-content grid lg:grid-cols-2 gap-12 items-start">
                 <!-- Text Content -->
-                <div class="about-text glass-panel p-8 rounded-2xl reveal border-l-4 border-l-brand-secondary">
-                    <p class="about-intro text-gray-300 leading-relaxed text-lg mb-6">
+                <div class="about-text glass-panel p-6 md:p-8 rounded-2xl reveal border-l-4 border-l-brand-secondary">
+                    <p class="about-intro text-gray-300 leading-relaxed text-base md:text-lg mb-6">
                         I'm <strong>Foil (Aryansh Rai)</strong>, a passionate Developer. I don't just write code; I architect solutions that bridge the gap between complex AI logic and user-friendly interfaces.
                     </p>
                     
                     <div class="quote-box my-8 relative pl-6">
-                        <i class="fas fa-quote-left absolute top-0 left-0 text-brand-primary/50 text-2xl"></i>
-                        <p class="text-xl md:text-2xl font-bold text-brand-light italic font-serif tracking-wide leading-normal">
+                        <i class="fas fa-quote-left absolute top-0 left-0 text-brand-primary/50 text-2xl" aria-hidden="true"></i>
+                        <p class="text-lg md:text-2xl font-bold text-brand-light italic font-serif tracking-wide leading-normal">
                             "Coding let's you convert your imagination into an Art!"
                         </p>
                     </div>
@@ -347,8 +375,8 @@
                          <span class="px-3 py-1 bg-brand-dark rounded text-xs text-brand-secondary font-mono border border-brand-secondary/20">#Innovation</span>
                     </div>
 
-                    <a href="https://buymeacoffee.com/aryanshrai" target="_blank" aria-label="Support my work" class="w-full group relative overflow-hidden rounded-lg bg-[#FFDD00] text-black font-bold py-3 px-6 flex items-center justify-center gap-3 transition-transform hover:scale-[1.02] shadow-lg font-mono text-sm">
-                        <img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="Buy me a coffee" class="h-5 w-auto">
+                    <a href="https://buymeacoffee.com/aryanshrai" target="_blank" aria-label="Support my work on Buy Me a Coffee" class="w-full group relative overflow-hidden rounded-lg bg-[#FFDD00] text-black font-bold py-3 px-6 flex items-center justify-center gap-3 transition-transform hover:scale-[1.02] shadow-lg font-mono text-sm">
+                        <img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="Buy me a coffee Logo" class="h-5 w-auto">
                         <span>Support_My_Work</span>
                     </a>
                 </div>
@@ -357,8 +385,8 @@
                 <div class="achievements grid gap-5 reveal">
                     <div class="achievement-card card-hover-effect bg-brand-dark/40 p-5 rounded-xl border border-brand-secondary/20">
                         <div class="flex items-center gap-4">
-                            <div class="icon-box w-12 h-12 flex items-center justify-center bg-brand-primary/20 rounded-lg text-brand-light border border-brand-primary/30">
-                                <i class="fas fa-rocket fa-lg"></i>
+                            <div class="icon-box w-12 h-12 flex-shrink-0 flex items-center justify-center bg-brand-primary/20 rounded-lg text-brand-light border border-brand-primary/30">
+                                <i class="fas fa-rocket fa-lg" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <h3 class="font-bold text-white text-lg">Founder of FoilAI</h3>
@@ -369,8 +397,8 @@
 
                     <div class="achievement-card card-hover-effect bg-brand-dark/40 p-5 rounded-xl border border-brand-secondary/20">
                         <div class="flex items-center gap-4">
-                            <div class="icon-box w-12 h-12 flex items-center justify-center bg-brand-primary/20 rounded-lg text-brand-light border border-brand-primary/30">
-                                <i class="fas fa-brain fa-lg"></i>
+                            <div class="icon-box w-12 h-12 flex-shrink-0 flex items-center justify-center bg-brand-primary/20 rounded-lg text-brand-light border border-brand-primary/30">
+                                <i class="fas fa-brain fa-lg" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <h3 class="font-bold text-white text-lg">Founder of VroAI</h3>
@@ -381,8 +409,8 @@
 
                     <div class="achievement-card card-hover-effect bg-brand-dark/40 p-5 rounded-xl border border-brand-secondary/20">
                         <div class="flex items-center gap-4">
-                            <div class="icon-box w-12 h-12 flex items-center justify-center bg-brand-primary/20 rounded-lg text-brand-light border border-brand-primary/30">
-                                <i class="fas fa-robot fa-lg"></i>
+                            <div class="icon-box w-12 h-12 flex-shrink-0 flex items-center justify-center bg-brand-primary/20 rounded-lg text-brand-light border border-brand-primary/30">
+                                <i class="fas fa-robot fa-lg" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <h3 class="font-bold text-white text-lg">Co-Founder KalaBilla</h3>
@@ -396,7 +424,7 @@
     </section>
 
     <!-- Expertise & Learning Section -->
-    <section id="expertise" class="py-20 bg-brand-dark/30 relative z-10 border-y border-brand-secondary/10">
+    <section id="expertise" class="py-16 md:py-20 bg-brand-dark/30 relative z-10 border-y border-brand-secondary/10">
         <div class="container mx-auto px-6">
             <h2 class="section-title text-3xl md:text-4xl font-bold text-white mb-12 text-center reveal font-mono">
                 <span class="text-brand-secondary">02.</span> Skill Matrix
@@ -405,9 +433,9 @@
             <div class="grid lg:grid-cols-2 gap-12">
                 
                 <!-- Technical Proficiency -->
-                <div class="glass-panel p-8 rounded-2xl reveal">
+                <div class="glass-panel p-6 md:p-8 rounded-2xl reveal">
                     <h3 class="text-xl font-bold text-brand-light mb-6 font-mono flex items-center">
-                        <i class="fas fa-terminal mr-3"></i> Core_Proficiency
+                        <i class="fas fa-terminal mr-3" aria-hidden="true"></i> Core_Proficiency
                     </h3>
                     
                     <div class="space-y-6">
@@ -416,7 +444,7 @@
                                 <span class="text-gray-300">Frontend (HTML/CSS/JS)</span>
                                 <span class="text-brand-secondary">95%</span>
                             </div>
-                            <div class="h-2 bg-brand-dark rounded-full overflow-hidden border border-brand-secondary/30">
+                            <div class="h-2 bg-brand-dark rounded-full overflow-hidden border border-brand-secondary/30" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-label="Frontend Proficiency 95%">
                                 <div class="h-full bg-gradient-to-r from-brand-secondary to-brand-light w-[95%]"></div>
                             </div>
                         </div>
@@ -425,7 +453,7 @@
                                 <span class="text-gray-300">Backend (PHP/SQL)</span>
                                 <span class="text-brand-secondary">85%</span>
                             </div>
-                            <div class="h-2 bg-brand-dark rounded-full overflow-hidden border border-brand-secondary/30">
+                            <div class="h-2 bg-brand-dark rounded-full overflow-hidden border border-brand-secondary/30" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Backend Proficiency 85%">
                                 <div class="h-full bg-gradient-to-r from-brand-secondary to-brand-light w-[85%]"></div>
                             </div>
                         </div>
@@ -434,7 +462,7 @@
                                 <span class="text-gray-300">Discord Bot Dev</span>
                                 <span class="text-brand-secondary">92%</span>
                             </div>
-                            <div class="h-2 bg-brand-dark rounded-full overflow-hidden border border-brand-secondary/30">
+                            <div class="h-2 bg-brand-dark rounded-full overflow-hidden border border-brand-secondary/30" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100" aria-label="Discord Bot Proficiency 92%">
                                 <div class="h-full bg-gradient-to-r from-brand-secondary to-brand-light w-[92%]"></div>
                             </div>
                         </div>
@@ -442,14 +470,14 @@
 
                     <!-- Currently Learning Block -->
                     <div class="mt-8 pt-8 border-t border-brand-secondary/20">
-                         <h3 class="text-lg font-bold text-white mb-4 font-mono"><i class="fas fa-sync fa-spin text-brand-secondary mr-2"></i> Currently_Learning</h3>
-                         <div class="flex gap-4">
+                         <h3 class="text-lg font-bold text-white mb-4 font-mono"><i class="fas fa-sync fa-spin text-brand-secondary mr-2" aria-hidden="true"></i> Currently_Learning</h3>
+                         <div class="flex flex-wrap gap-4">
                             <div class="flex items-center gap-3 bg-brand-dark/50 px-4 py-2 rounded-lg border border-brand-secondary/30">
-                                <i class="fab fa-node-js text-green-500 text-xl"></i>
+                                <i class="fab fa-node-js text-green-500 text-xl" aria-hidden="true"></i>
                                 <span class="font-mono text-sm text-gray-300">Node.js</span>
                             </div>
                             <div class="flex items-center gap-3 bg-brand-dark/50 px-4 py-2 rounded-lg border border-brand-secondary/30">
-                                <i class="fab fa-python text-yellow-400 text-xl"></i>
+                                <i class="fab fa-python text-yellow-400 text-xl" aria-hidden="true"></i>
                                 <span class="font-mono text-sm text-gray-300">Python</span>
                             </div>
                          </div>
@@ -459,31 +487,31 @@
                 <!-- Tools Grid -->
                 <div class="reveal">
                     <h3 class="text-xl font-bold text-brand-light mb-6 font-mono pl-2">
-                         <i class="fas fa-toolbox mr-3"></i> Tech_Arsenal
+                         <i class="fas fa-toolbox mr-3" aria-hidden="true"></i> Tech_Arsenal
                     </h3>
                     <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
                         <div class="p-5 rounded-xl bg-brand-primary/10 border border-brand-secondary/20 text-center hover:bg-brand-primary/30 transition-all hover:scale-105 group">
-                            <i class="fab fa-html5 text-3xl text-orange-500 mb-2 group-hover:-translate-y-1 transition-transform block"></i>
+                            <i class="fab fa-html5 text-3xl text-orange-500 mb-2 group-hover:-translate-y-1 transition-transform block" aria-hidden="true"></i>
                             <span class="text-gray-400 font-mono text-xs">HTML5</span>
                         </div>
                         <div class="p-5 rounded-xl bg-brand-primary/10 border border-brand-secondary/20 text-center hover:bg-brand-primary/30 transition-all hover:scale-105 group">
-                            <i class="fab fa-css3-alt text-3xl text-blue-500 mb-2 group-hover:-translate-y-1 transition-transform block"></i>
+                            <i class="fab fa-css3-alt text-3xl text-blue-500 mb-2 group-hover:-translate-y-1 transition-transform block" aria-hidden="true"></i>
                             <span class="text-gray-400 font-mono text-xs">CSS3</span>
                         </div>
                         <div class="p-5 rounded-xl bg-brand-primary/10 border border-brand-secondary/20 text-center hover:bg-brand-primary/30 transition-all hover:scale-105 group">
-                            <i class="fab fa-js text-3xl text-yellow-400 mb-2 group-hover:-translate-y-1 transition-transform block"></i>
+                            <i class="fab fa-js text-3xl text-yellow-400 mb-2 group-hover:-translate-y-1 transition-transform block" aria-hidden="true"></i>
                             <span class="text-gray-400 font-mono text-xs">JavaScript</span>
                         </div>
                         <div class="p-5 rounded-xl bg-brand-primary/10 border border-brand-secondary/20 text-center hover:bg-brand-primary/30 transition-all hover:scale-105 group">
-                            <i class="fab fa-php text-3xl text-purple-400 mb-2 group-hover:-translate-y-1 transition-transform block"></i>
+                            <i class="fab fa-php text-3xl text-purple-400 mb-2 group-hover:-translate-y-1 transition-transform block" aria-hidden="true"></i>
                             <span class="text-gray-400 font-mono text-xs">PHP</span>
                         </div>
                         <div class="p-5 rounded-xl bg-brand-primary/10 border border-brand-secondary/20 text-center hover:bg-brand-primary/30 transition-all hover:scale-105 group">
-                            <i class="fas fa-database text-3xl text-brand-light mb-2 group-hover:-translate-y-1 transition-transform block"></i>
+                            <i class="fas fa-database text-3xl text-brand-light mb-2 group-hover:-translate-y-1 transition-transform block" aria-hidden="true"></i>
                             <span class="text-gray-400 font-mono text-xs">SQL</span>
                         </div>
                         <div class="p-5 rounded-xl bg-brand-primary/10 border border-brand-secondary/20 text-center hover:bg-brand-primary/30 transition-all hover:scale-105 group">
-                            <i class="fab fa-uikit text-3xl text-cyan-400 mb-2 group-hover:-translate-y-1 transition-transform block"></i>
+                            <i class="fab fa-uikit text-3xl text-cyan-400 mb-2 group-hover:-translate-y-1 transition-transform block" aria-hidden="true"></i>
                             <span class="text-gray-400 font-mono text-xs">Tailwind</span>
                         </div>
                     </div>
@@ -493,7 +521,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects py-20 relative z-10">
+    <section id="projects" class="projects py-16 md:py-20 relative z-10">
         <div class="container mx-auto px-6">
             <h2 class="section-title text-3xl md:text-4xl font-bold text-white mb-2 text-center reveal font-mono">
                 <span class="text-brand-secondary">03.</span> Featured Projects
@@ -502,13 +530,13 @@
                 // Selected works from 2024-2025
             </p>
 
-            <div class="projects-grid grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="projects-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
                 <!-- Project 1 -->
                 <div class="project-card card-hover-effect glass-panel rounded-xl p-6 reveal flex flex-col h-full group">
                     <div class="flex justify-between items-start mb-4">
-                        <i class="fas fa-folder text-brand-secondary text-3xl"></i>
-                        <a href="https://foilai.in" target="_blank" aria-label="Visit FoilAI" class="text-brand-light hover:text-white"><i class="fas fa-external-link-alt"></i></a>
+                        <i class="fas fa-folder text-brand-secondary text-3xl" aria-hidden="true"></i>
+                        <a href="https://foilai.in" target="_blank" aria-label="Visit FoilAI Website" class="text-brand-light hover:text-white p-2"><i class="fas fa-external-link-alt"></i></a>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-light transition-colors">FoilAI</h3>
                     <p class="text-gray-400 text-sm mb-4 flex-grow">AI tool & platform for smart solutions - Building the future of AI-powered applications.</p>
@@ -520,8 +548,8 @@
                 <!-- Project 2 -->
                 <div class="project-card card-hover-effect glass-panel rounded-xl p-6 reveal flex flex-col h-full group">
                     <div class="flex justify-between items-start mb-4">
-                        <i class="fas fa-folder text-brand-secondary text-3xl"></i>
-                        <a href="https://gpt.vroai.in" target="_blank" aria-label="Visit VroGPT" class="text-brand-light hover:text-white"><i class="fas fa-external-link-alt"></i></a>
+                        <i class="fas fa-folder text-brand-secondary text-3xl" aria-hidden="true"></i>
+                        <a href="https://gpt.vroai.in" target="_blank" aria-label="Visit VroGPT Website" class="text-brand-light hover:text-white p-2"><i class="fas fa-external-link-alt"></i></a>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-light transition-colors">VroGPT</h3>
                     <p class="text-gray-400 text-sm mb-4 flex-grow">Advanced AI Chatbot & GPT service - Experience next-gen conversational AI.</p>
@@ -533,8 +561,8 @@
                 <!-- Project 3 -->
                 <div class="project-card card-hover-effect glass-panel rounded-xl p-6 reveal flex flex-col h-full group">
                     <div class="flex justify-between items-start mb-4">
-                        <i class="fas fa-folder text-brand-secondary text-3xl"></i>
-                        <a href="https://kalabilla.in" target="_blank" aria-label="Visit Kala Billa" class="text-brand-light hover:text-white"><i class="fas fa-external-link-alt"></i></a>
+                        <i class="fas fa-folder text-brand-secondary text-3xl" aria-hidden="true"></i>
+                        <a href="https://kalabilla.in" target="_blank" aria-label="Visit Kala Billa Website" class="text-brand-light hover:text-white p-2"><i class="fas fa-external-link-alt"></i></a>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-light transition-colors">Kala Billa Bot</h3>
                     <p class="text-gray-400 text-sm mb-4 flex-grow">Powerful Discord bot project - Enhance your Discord server with advanced features.</p>
@@ -546,8 +574,8 @@
                 <!-- Project 4 -->
                 <div class="project-card card-hover-effect glass-panel rounded-xl p-6 reveal flex flex-col h-full group">
                     <div class="flex justify-between items-start mb-4">
-                        <i class="fas fa-folder text-brand-secondary text-3xl"></i>
-                        <a href="https://dfamo.co.uk" target="_blank" aria-label="Visit DfamoAI" class="text-brand-light hover:text-white"><i class="fas fa-external-link-alt"></i></a>
+                        <i class="fas fa-folder text-brand-secondary text-3xl" aria-hidden="true"></i>
+                        <a href="https://dfamo.co.uk" target="_blank" aria-label="Visit DfamoAI Website" class="text-brand-light hover:text-white p-2"><i class="fas fa-external-link-alt"></i></a>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-light transition-colors">DfamoAI</h3>
                     <p class="text-gray-400 text-sm mb-4 flex-grow">Homework helper AI Chatbot - Your intelligent study companion.</p>
@@ -556,11 +584,11 @@
                     </div>
                 </div>
 
-                 <!-- Project 5: Tinymark (Restored) -->
+                 <!-- Project 5 -->
                  <div class="project-card card-hover-effect glass-panel rounded-xl p-6 reveal flex flex-col h-full group">
                     <div class="flex justify-between items-start mb-4">
-                        <i class="fas fa-folder text-brand-secondary text-3xl"></i>
-                        <a href="https://tinymark-lang.page.gd" target="_blank" aria-label="Visit Tinymark" class="text-brand-light hover:text-white"><i class="fas fa-external-link-alt"></i></a>
+                        <i class="fas fa-folder text-brand-secondary text-3xl" aria-hidden="true"></i>
+                        <a href="https://tinymark-lang.page.gd" target="_blank" aria-label="Visit Tinymark Website" class="text-brand-light hover:text-white p-2"><i class="fas fa-external-link-alt"></i></a>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-light transition-colors">Tinymark</h3>
                     <p class="text-gray-400 text-sm mb-4 flex-grow">Coding language - A powerful and intuitive programming language concept.</p>
@@ -572,8 +600,8 @@
                  <!-- Project 6 -->
                  <div class="project-card card-hover-effect glass-panel rounded-xl p-6 reveal flex flex-col h-full group">
                     <div class="flex justify-between items-start mb-4">
-                        <i class="fas fa-folder text-brand-secondary text-3xl"></i>
-                        <a href="https://dixo.foilai.in" target="_blank" aria-label="Visit DixoAI" class="text-brand-light hover:text-white"><i class="fas fa-external-link-alt"></i></a>
+                        <i class="fas fa-folder text-brand-secondary text-3xl" aria-hidden="true"></i>
+                        <a href="https://dixo.foilai.in" target="_blank" aria-label="Visit Foil DixoAI Website" class="text-brand-light hover:text-white p-2"><i class="fas fa-external-link-alt"></i></a>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-light transition-colors">Foil DixoAI</h3>
                     <p class="text-gray-400 text-sm mb-4 flex-grow">AI Diary Writer - Your personal AI-powered journal companion.</p>
@@ -585,8 +613,8 @@
                 <!-- Project 7 -->
                 <div class="project-card card-hover-effect glass-panel rounded-xl p-6 reveal flex flex-col h-full group lg:col-span-3 lg:w-1/3 lg:mx-auto">
                     <div class="flex justify-between items-start mb-4">
-                        <i class="fas fa-folder text-brand-secondary text-3xl"></i>
-                        <a href="https://hostmy.xo.je" target="_blank" aria-label="Visit HostMy" class="text-brand-light hover:text-white"><i class="fas fa-external-link-alt"></i></a>
+                        <i class="fas fa-folder text-brand-secondary text-3xl" aria-hidden="true"></i>
+                        <a href="https://hostmy.xo.je" target="_blank" aria-label="Visit HostMy Tools Website" class="text-brand-light hover:text-white p-2"><i class="fas fa-external-link-alt"></i></a>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-light transition-colors">HostMy Tools</h3>
                     <p class="text-gray-400 text-sm mb-4 flex-grow">Instantly host your HTML pages or PDF files - Simple and fast hosting solution.</p>
@@ -599,24 +627,24 @@
     </section>
 
     <!-- Activity Log (GitHub) -->
-    <section id="stats" class="stats py-20 bg-brand-dark/40 relative z-10 border-t border-brand-secondary/10">
+    <section id="stats" class="stats py-16 md:py-20 bg-brand-dark/40 relative z-10 border-t border-brand-secondary/10">
         <div class="container mx-auto px-6">
             <h2 class="section-title text-3xl font-bold text-white mb-10 text-center reveal font-mono">
                 <span class="text-brand-secondary">04.</span> Activity Log
             </h2>
             <div class="flex flex-col md:flex-row justify-center items-center gap-6 reveal">
                 <div class="w-full md:w-auto hover:scale-105 transition-transform duration-300">
-                    <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=aryanshrai03&theme=tokyonight" alt="GitHub Profile Details" loading="lazy" class="w-full rounded-xl shadow-lg border border-brand-primary/30">
+                    <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=aryanshrai03&theme=tokyonight" alt="GitHub Profile Details Summary" loading="lazy" class="w-full rounded-xl shadow-lg border border-brand-primary/30">
                 </div>
                 <div class="w-full md:w-auto hover:scale-105 transition-transform duration-300">
-                    <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=aryanshrai03&theme=tokyonight" alt="Top Languages" loading="lazy" class="w-full rounded-xl shadow-lg border border-brand-primary/30">
+                    <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=aryanshrai03&theme=tokyonight" alt="Top Languages Summary" loading="lazy" class="w-full rounded-xl shadow-lg border border-brand-primary/30">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Sleek Contact & Socials Section -->
-    <section id="contact" class="contact py-24 relative z-10">
+    <section id="contact" class="contact py-16 md:py-24 relative z-10">
         <div class="container mx-auto px-6 text-center">
             <h2 class="section-title text-3xl md:text-4xl font-bold text-white mb-6 reveal font-mono">
                 <span class="text-brand-secondary">05.</span> Initialize_Connection
@@ -626,89 +654,89 @@
             <div class="contact-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto reveal">
                 
                 <!-- Instagram -->
-                <a href="https://instagram.com/real.foil" target="_blank" aria-label="Instagram" class="flex items-center gap-4 p-4 rounded-xl border border-brand-secondary/20 bg-brand-dark/50 hover:bg-brand-primary/20 transition-all hover:-translate-y-1 hover:border-brand-secondary/50 group">
-                    <div class="w-12 h-12 rounded-lg bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white shadow-lg">
-                        <i class="fab fa-instagram fa-lg"></i>
+                <a href="https://instagram.com/real.foil" target="_blank" aria-label="Follow me on Instagram" class="flex items-center gap-4 p-4 rounded-xl border border-brand-secondary/20 bg-brand-dark/50 hover:bg-brand-primary/20 transition-all hover:-translate-y-1 hover:border-brand-secondary/50 group">
+                    <div class="w-12 h-12 rounded-lg bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white shadow-lg flex-shrink-0">
+                        <i class="fab fa-instagram fa-lg" aria-hidden="true"></i>
                     </div>
-                    <div class="text-left">
+                    <div class="text-left overflow-hidden">
                         <h4 class="font-bold text-white text-base font-mono">Instagram</h4>
-                        <p class="text-brand-secondary text-xs">@real.foil</p>
+                        <p class="text-brand-secondary text-xs truncate">@real.foil</p>
                     </div>
-                    <i class="fas fa-arrow-right ml-auto text-brand-dark opacity-0 group-hover:opacity-100 group-hover:text-brand-light transition-all"></i>
+                    <i class="fas fa-arrow-right ml-auto text-brand-dark opacity-0 group-hover:opacity-100 group-hover:text-brand-light transition-all" aria-hidden="true"></i>
                 </a>
 
                 <!-- Reddit -->
-                <a href="https://www.reddit.com/user/vroai" target="_blank" aria-label="Reddit" class="flex items-center gap-4 p-4 rounded-xl border border-brand-secondary/20 bg-brand-dark/50 hover:bg-brand-primary/20 transition-all hover:-translate-y-1 hover:border-brand-secondary/50 group">
-                    <div class="w-12 h-12 rounded-lg bg-[#FF4500] flex items-center justify-center text-white shadow-lg">
-                        <i class="fab fa-reddit-alien fa-lg"></i>
+                <a href="https://www.reddit.com/user/vroai" target="_blank" aria-label="Follow me on Reddit" class="flex items-center gap-4 p-4 rounded-xl border border-brand-secondary/20 bg-brand-dark/50 hover:bg-brand-primary/20 transition-all hover:-translate-y-1 hover:border-brand-secondary/50 group">
+                    <div class="w-12 h-12 rounded-lg bg-[#FF4500] flex items-center justify-center text-white shadow-lg flex-shrink-0">
+                        <i class="fab fa-reddit-alien fa-lg" aria-hidden="true"></i>
                     </div>
-                    <div class="text-left">
+                    <div class="text-left overflow-hidden">
                         <h4 class="font-bold text-white text-base font-mono">Reddit</h4>
-                        <p class="text-brand-secondary text-xs">u/vroai</p>
+                        <p class="text-brand-secondary text-xs truncate">u/vroai</p>
                     </div>
-                    <i class="fas fa-arrow-right ml-auto text-brand-dark opacity-0 group-hover:opacity-100 group-hover:text-brand-light transition-all"></i>
+                    <i class="fas fa-arrow-right ml-auto text-brand-dark opacity-0 group-hover:opacity-100 group-hover:text-brand-light transition-all" aria-hidden="true"></i>
                 </a>
 
                 <!-- GitHub -->
-                <a href="https://github.com/aryanshrai03" target="_blank" aria-label="GitHub" class="flex items-center gap-4 p-4 rounded-xl border border-brand-secondary/20 bg-brand-dark/50 hover:bg-brand-primary/20 transition-all hover:-translate-y-1 hover:border-brand-secondary/50 group">
-                    <div class="w-12 h-12 rounded-lg bg-gray-800 flex items-center justify-center text-white shadow-lg">
-                        <i class="fab fa-github fa-lg"></i>
+                <a href="https://github.com/aryanshrai03" target="_blank" aria-label="View GitHub Profile" class="flex items-center gap-4 p-4 rounded-xl border border-brand-secondary/20 bg-brand-dark/50 hover:bg-brand-primary/20 transition-all hover:-translate-y-1 hover:border-brand-secondary/50 group">
+                    <div class="w-12 h-12 rounded-lg bg-gray-800 flex items-center justify-center text-white shadow-lg flex-shrink-0">
+                        <i class="fab fa-github fa-lg" aria-hidden="true"></i>
                     </div>
-                    <div class="text-left">
+                    <div class="text-left overflow-hidden">
                         <h4 class="font-bold text-white text-base font-mono">GitHub</h4>
-                        <p class="text-brand-secondary text-xs">@aryanshrai03</p>
+                        <p class="text-brand-secondary text-xs truncate">@aryanshrai03</p>
                     </div>
-                    <i class="fas fa-arrow-right ml-auto text-brand-dark opacity-0 group-hover:opacity-100 group-hover:text-brand-light transition-all"></i>
+                    <i class="fas fa-arrow-right ml-auto text-brand-dark opacity-0 group-hover:opacity-100 group-hover:text-brand-light transition-all" aria-hidden="true"></i>
                 </a>
 
                 <!-- Discord User -->
-                <a href="https://discord.com/users/1252101579855630346" target="_blank" aria-label="Discord User" class="flex items-center gap-4 p-4 rounded-xl border border-brand-secondary/20 bg-brand-dark/50 hover:bg-brand-primary/20 transition-all hover:-translate-y-1 hover:border-brand-secondary/50 group">
-                    <div class="w-12 h-12 rounded-lg bg-[#5865F2] flex items-center justify-center text-white shadow-lg">
-                        <i class="fab fa-discord fa-lg"></i>
+                <a href="https://discord.com/users/1252101579855630346" target="_blank" aria-label="Message me on Discord" class="flex items-center gap-4 p-4 rounded-xl border border-brand-secondary/20 bg-brand-dark/50 hover:bg-brand-primary/20 transition-all hover:-translate-y-1 hover:border-brand-secondary/50 group">
+                    <div class="w-12 h-12 rounded-lg bg-[#5865F2] flex items-center justify-center text-white shadow-lg flex-shrink-0">
+                        <i class="fab fa-discord fa-lg" aria-hidden="true"></i>
                     </div>
-                    <div class="text-left">
+                    <div class="text-left overflow-hidden">
                         <h4 class="font-bold text-white text-base font-mono">Discord</h4>
-                        <p class="text-brand-secondary text-xs">Foil#0000</p>
+                        <p class="text-brand-secondary text-xs truncate">Foil#0000</p>
                     </div>
-                    <i class="fas fa-arrow-right ml-auto text-brand-dark opacity-0 group-hover:opacity-100 group-hover:text-brand-light transition-all"></i>
+                    <i class="fas fa-arrow-right ml-auto text-brand-dark opacity-0 group-hover:opacity-100 group-hover:text-brand-light transition-all" aria-hidden="true"></i>
                 </a>
 
                 <!-- Discord Server -->
-                <a href="https://discord.gg/QEFytsQPCR" target="_blank" aria-label="Discord Server" class="flex items-center gap-4 p-4 rounded-xl border border-brand-secondary/20 bg-brand-dark/50 hover:bg-brand-primary/20 transition-all hover:-translate-y-1 hover:border-brand-secondary/50 group">
-                    <div class="w-12 h-12 rounded-lg bg-[#5865F2] flex items-center justify-center text-white shadow-lg">
-                        <i class="fas fa-users fa-lg"></i>
+                <a href="https://discord.gg/QEFytsQPCR" target="_blank" aria-label="Join Discord Server" class="flex items-center gap-4 p-4 rounded-xl border border-brand-secondary/20 bg-brand-dark/50 hover:bg-brand-primary/20 transition-all hover:-translate-y-1 hover:border-brand-secondary/50 group">
+                    <div class="w-12 h-12 rounded-lg bg-[#5865F2] flex items-center justify-center text-white shadow-lg flex-shrink-0">
+                        <i class="fas fa-users fa-lg" aria-hidden="true"></i>
                     </div>
-                    <div class="text-left">
+                    <div class="text-left overflow-hidden">
                         <h4 class="font-bold text-white text-base font-mono">Community</h4>
-                        <p class="text-brand-secondary text-xs">Join Server</p>
+                        <p class="text-brand-secondary text-xs truncate">Join Server</p>
                     </div>
-                    <i class="fas fa-arrow-right ml-auto text-brand-dark opacity-0 group-hover:opacity-100 group-hover:text-brand-light transition-all"></i>
+                    <i class="fas fa-arrow-right ml-auto text-brand-dark opacity-0 group-hover:opacity-100 group-hover:text-brand-light transition-all" aria-hidden="true"></i>
                 </a>
 
                 <!-- Email -->
-                <a href="mailto:realpablopebble@gmail.com" aria-label="Email Me" class="flex items-center gap-4 p-4 rounded-xl border border-brand-secondary/20 bg-brand-dark/50 hover:bg-brand-primary/20 transition-all hover:-translate-y-1 hover:border-brand-secondary/50 group">
-                    <div class="w-12 h-12 rounded-lg bg-red-600 flex items-center justify-center text-white shadow-lg">
-                        <i class="fas fa-envelope fa-lg"></i>
+                <a href="mailto:realpablopebble@gmail.com" aria-label="Send Email" class="flex items-center gap-4 p-4 rounded-xl border border-brand-secondary/20 bg-brand-dark/50 hover:bg-brand-primary/20 transition-all hover:-translate-y-1 hover:border-brand-secondary/50 group">
+                    <div class="w-12 h-12 rounded-lg bg-red-600 flex items-center justify-center text-white shadow-lg flex-shrink-0">
+                        <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
                     </div>
-                    <div class="text-left">
+                    <div class="text-left overflow-hidden">
                         <h4 class="font-bold text-white text-base font-mono">Email</h4>
-                        <p class="text-brand-secondary text-xs">Send Mail</p>
+                        <p class="text-brand-secondary text-xs truncate">Send Mail</p>
                     </div>
-                    <i class="fas fa-arrow-right ml-auto text-brand-dark opacity-0 group-hover:opacity-100 group-hover:text-brand-light transition-all"></i>
+                    <i class="fas fa-arrow-right ml-auto text-brand-dark opacity-0 group-hover:opacity-100 group-hover:text-brand-light transition-all" aria-hidden="true"></i>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Open Source & Language Breakdown (NEW) -->
+    <!-- Open Source & Language Breakdown -->
     <section id="colophon" class="py-10 relative z-10 px-4">
         <div class="container mx-auto max-w-4xl">
-             <div class="glass-panel rounded-2xl p-8 border border-brand-secondary/30 text-center">
+             <div class="glass-panel rounded-2xl p-6 md:p-8 border border-brand-secondary/30 text-center">
                  <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-                     <div class="text-left">
-                         <h3 class="text-xl font-bold text-white mb-2 font-mono"><i class="fab fa-github mr-2"></i> Open_Source_Project</h3>
+                     <div class="text-left w-full md:w-auto">
+                         <h3 class="text-lg md:text-xl font-bold text-white mb-2 font-mono flex items-center gap-2"><i class="fab fa-github" aria-hidden="true"></i> Open_Source_Project</h3>
                          <p class="text-brand-light/80 text-sm mb-4">This portfolio is open source. Feel free to fork and star!</p>
-                         <a href="https://github.com/aryanshrai03/bio-foil.github.io" target="_blank" class="text-xs font-bold uppercase tracking-widest text-brand-secondary hover:text-white transition-colors border-b border-brand-secondary pb-1">View Repository <i class="fas fa-arrow-right ml-1"></i></a>
+                         <a href="https://github.com/aryanshrai03/bio-foil.github.io" target="_blank" aria-label="View Source Code Repository" class="text-xs font-bold uppercase tracking-widest text-brand-secondary hover:text-white transition-colors border-b border-brand-secondary pb-1">View Repository <i class="fas fa-arrow-right ml-1"></i></a>
                      </div>
 
                      <div class="w-full md:w-1/2">
@@ -717,7 +745,7 @@
                              <span>100%</span>
                          </div>
                          <!-- Segmented Bar -->
-                         <div class="flex h-3 rounded-full overflow-hidden w-full bg-brand-dark">
+                         <div class="flex h-3 rounded-full overflow-hidden w-full bg-brand-dark" role="img" aria-label="Language Distribution Chart">
                              <div class="h-full bg-brand-secondary" style="width: 64.8%" title="HTML 64.8%"></div>
                              <div class="h-full bg-brand-primary" style="width: 25.3%" title="CSS 25.3%"></div>
                              <div class="h-full bg-brand-light" style="width: 9.9%" title="JavaScript 9.9%"></div>
@@ -754,9 +782,9 @@
                             Transforming raw ideas into clear, compelling AI solutions.
                         </p>
                         <div class="flex gap-4">
-                            <a href="https://instagram.com/real.foil" aria-label="Instagram" class="text-brand-light hover:text-white transition-colors text-xl"><i class="fab fa-instagram"></i></a>
-                            <a href="https://github.com/aryanshrai03" aria-label="GitHub" class="text-brand-light hover:text-white transition-colors text-xl"><i class="fab fa-github"></i></a>
-                            <a href="https://discord.gg/QEFytsQPCR" aria-label="Discord" class="text-brand-light hover:text-white transition-colors text-xl"><i class="fab fa-discord"></i></a>
+                            <a href="https://instagram.com/real.foil" aria-label="Instagram Footer Link" class="text-brand-light hover:text-white transition-colors text-xl p-2"><i class="fab fa-instagram"></i></a>
+                            <a href="https://github.com/aryanshrai03" aria-label="GitHub Footer Link" class="text-brand-light hover:text-white transition-colors text-xl p-2"><i class="fab fa-github"></i></a>
+                            <a href="https://discord.gg/QEFytsQPCR" aria-label="Discord Footer Link" class="text-brand-light hover:text-white transition-colors text-xl p-2"><i class="fab fa-discord"></i></a>
                         </div>
                     </div>
 
@@ -764,10 +792,10 @@
                     <div>
                         <h4 class="font-bold text-white mb-4 font-mono text-sm uppercase tracking-wider">Projects</h4>
                         <ul class="space-y-2 text-sm text-brand-light/70">
-                            <li><a href="https://foilai.in" class="hover:text-brand-light transition-colors hover:underline">FoilAI</a></li>
-                            <li><a href="https://gpt.vroai.in" class="hover:text-brand-light transition-colors hover:underline">VroGPT</a></li>
-                            <li><a href="https://kalabilla.in" class="hover:text-brand-light transition-colors hover:underline">Kala Billa</a></li>
-                            <li><a href="https://dixo.foilai.in" class="hover:text-brand-light transition-colors hover:underline">DixoAI</a></li>
+                            <li><a href="https://foilai.in" aria-label="FoilAI Project" class="hover:text-brand-light transition-colors hover:underline">FoilAI</a></li>
+                            <li><a href="https://gpt.vroai.in" aria-label="VroGPT Project" class="hover:text-brand-light transition-colors hover:underline">VroGPT</a></li>
+                            <li><a href="https://kalabilla.in" aria-label="Kala Billa Project" class="hover:text-brand-light transition-colors hover:underline">Kala Billa</a></li>
+                            <li><a href="https://dixo.foilai.in" aria-label="DixoAI Project" class="hover:text-brand-light transition-colors hover:underline">DixoAI</a></li>
                         </ul>
                     </div>
 
@@ -775,9 +803,9 @@
                     <div>
                         <h4 class="font-bold text-white mb-4 font-mono text-sm uppercase tracking-wider">Resources</h4>
                         <ul class="space-y-2 text-sm text-brand-light/70">
-                            <li><a href="#expertise" class="hover:text-brand-light transition-colors hover:underline">Skill Matrix</a></li>
-                            <li><a href="https://github.com/aryanshrai03" class="hover:text-brand-light transition-colors hover:underline">Source Code</a></li>
-                            <li><a href="https://buymeacoffee.com/aryanshrai" class="hover:text-brand-light transition-colors hover:underline">Donate</a></li>
+                            <li><a href="#expertise" aria-label="Skill Matrix Section" class="hover:text-brand-light transition-colors hover:underline">Skill Matrix</a></li>
+                            <li><a href="https://github.com/aryanshrai03" aria-label="Source Code" class="hover:text-brand-light transition-colors hover:underline">Source Code</a></li>
+                            <li><a href="https://buymeacoffee.com/aryanshrai" aria-label="Donate" class="hover:text-brand-light transition-colors hover:underline">Donate</a></li>
                         </ul>
                     </div>
 
@@ -785,18 +813,18 @@
                     <div>
                         <h4 class="font-bold text-white mb-4 font-mono text-sm uppercase tracking-wider">Nav</h4>
                         <ul class="space-y-2 text-sm text-brand-light/70">
-                            <li><a href="#about" class="hover:text-brand-light transition-colors hover:underline">About</a></li>
-                            <li><a href="#contact" class="hover:text-brand-light transition-colors hover:underline">Contact</a></li>
+                            <li><a href="#about" aria-label="About Section" class="hover:text-brand-light transition-colors hover:underline">About</a></li>
+                            <li><a href="#contact" aria-label="Contact Section" class="hover:text-brand-light transition-colors hover:underline">Contact</a></li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="border-t border-brand-secondary/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 relative z-10">
-                    <p class="text-xs text-brand-secondary font-mono">&copy; 2025 Foil (Aryansh Rai). All rights reserved.</p>
+                    <p class="text-xs text-brand-secondary font-mono text-center md:text-left">&copy; 2025 Foil (Aryansh Rai). All rights reserved.</p>
                     <div class="flex gap-6 text-xs text-brand-light/60 font-mono">
-                        <span class="hover:text-white cursor-pointer">Privacy</span>
-                        <span class="hover:text-white cursor-pointer">Terms</span>
-                        <a href="#home" class="hover:text-white transition-colors flex items-center gap-1">Top <i class="fas fa-arrow-up"></i></a>
+                        <span class="hover:text-white cursor-pointer" tabindex="0" aria-label="Privacy Policy">Privacy</span>
+                        <span class="hover:text-white cursor-pointer" tabindex="0" aria-label="Terms of Service">Terms</span>
+                        <a href="#home" aria-label="Scroll to Top" class="hover:text-white transition-colors flex items-center gap-1">Top <i class="fas fa-arrow-up" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
@@ -826,6 +854,13 @@
                 }).catch(err => console.log("Audio autoplay prevented by browser policy"));
             });
 
+            // Enter key accessibility for Enter Screen
+            enterScreen.addEventListener('keypress', (e) => {
+                if(e.key === 'Enter') {
+                    enterScreen.click();
+                }
+            });
+
             // Sound Toggle
             soundToggle.addEventListener('click', () => {
                 if (isPlaying) {
@@ -850,15 +885,16 @@
                 }
             }
 
-            // Typing Effect (Terminal Style)
+            // Typing Effect (Terminal Style) - Optimized with basic recursive timeout
             const texts = ["Full-Stack Developer", "AI Enthusiast", "Discord Bot Dev", "Tech Innovator"];
             let count = 0;
             let index = 0;
             let currentText = "";
             let letter = "";
             let isDeleting = false;
+            const typingElement = document.querySelector('.typing-text');
             
-            (function type() {
+            function type() {
                 if (count === texts.length) {
                     count = 0;
                 }
@@ -870,7 +906,7 @@
                     letter = currentText.slice(0, ++index);
                 }
 
-                document.querySelector('.typing-text').textContent = letter;
+                if(typingElement) typingElement.textContent = letter;
 
                 let typeSpeed = 90;
                 if(isDeleting) typeSpeed = 40;
@@ -885,15 +921,24 @@
                 }
 
                 setTimeout(type, typeSpeed);
-            })();
+            }
+            type();
 
             // Mobile Menu
             const hamburger = document.querySelector('.hamburger');
             const mobileMenu = document.getElementById('mobileMenu');
             
             hamburger.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                mobileMenu.classList.toggle('flex');
+                const isHidden = mobileMenu.classList.contains('hidden');
+                if(isHidden) {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenu.classList.add('flex');
+                    hamburger.setAttribute('aria-expanded', 'true');
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                }
             });
 
             // Smooth Scroll & Close Menu
@@ -902,21 +947,38 @@
                     e.preventDefault();
                     mobileMenu.classList.add('hidden');
                     mobileMenu.classList.remove('flex');
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    hamburger.setAttribute('aria-expanded', 'false');
+                    
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if(target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
                 });
             });
 
-            // Back to Top Logic
+            // Back to Top Logic - Optimized for Performance (Reflow/Refaint reduction)
             const backToTopBtn = document.getElementById('backToTop');
-            window.addEventListener('scroll', () => {
+            let isScrolling = false;
+
+            function toggleBackToTop() {
                 if (window.scrollY > 300) {
                     backToTopBtn.classList.remove('translate-y-20', 'opacity-0');
+                    backToTopBtn.setAttribute('tabindex', '0');
                 } else {
                     backToTopBtn.classList.add('translate-y-20', 'opacity-0');
+                    backToTopBtn.setAttribute('tabindex', '-1');
                 }
-            });
+                isScrolling = false;
+            }
+
+            window.addEventListener('scroll', () => {
+                if (!isScrolling) {
+                    window.requestAnimationFrame(toggleBackToTop);
+                    isScrolling = true;
+                }
+            }, { passive: true });
             
             backToTopBtn.addEventListener('click', () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -932,6 +994,8 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
+                        // Optional: Unobserve after reveal for performance
+                        // observer.unobserve(entry.target); 
                     }
                 });
             }, observerOptions);
