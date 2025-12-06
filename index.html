@@ -3,19 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Foil (Aryansh Rai) - Full-Stack Developer & AI Innovator based in India. Specializing in AI-powered solutions, SaaS platforms, and Discord bots.">
-    <meta name="keywords" content="Foil, Aryansh Rai, Full-Stack Developer, AI Enthusiast, FoilAI, VroAI, Web Developer India, Portfolio">
+    <meta name="description" content="Foil (Aryansh Rai) - Full-Stack Developer & AI Innovator based in India. Creator of FoilAI, VroAI, and specialized Discord bots.">
+    <meta name="keywords" content="Foil, Aryansh Rai, Full-Stack Developer, AI Enthusiast, FoilAI, VroAI, Web Developer India, Portfolio, AI Tools">
     <meta name="author" content="Aryansh Rai">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://foilai.in/">
     <meta property="og:title" content="Foil - Full-Stack Developer & AI Innovator">
-    <meta property="og:image" content="https://www.aryansh.site/icon.jpg">
     <meta property="og:description" content="Explore the portfolio of Aryansh Rai, building the future of AI tools and robust web applications.">
+    <meta property="og:image" content="https://www.aryansh.site/icon.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://foilai.in/">
+    <meta property="twitter:title" content="Foil - Full-Stack Developer & AI Innovator">
+    <meta property="twitter:description" content="Explore the portfolio of Aryansh Rai, building the future of AI tools and robust web applications.">
+    <meta property="twitter:image" content="https://www.aryansh.site/icon.jpg">
     
     <title>Foil | Aryansh Rai - AI Innovator & Developer</title>
     
     <!-- Favicon -->
     <link rel="icon" type="image/jpg" href="https://www.aryansh.site/icon.jpg">
     
-    <!-- Fonts & Icons -->
+    <!-- Fonts & Icons (Swap for performance) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -30,20 +41,30 @@
                 extend: {
                     colors: {
                         brand: {
-                            dark: '#1A2A80',    // Deep Blue
-                            primary: '#3B38A0', // Vibrant Blue
-                            secondary: '#7A85C1', // Soft Blue
-                            light: '#B2B0E8',   // Pale Lavender
+                            dark: '#1A2A80',    // Deep Blue (Backgrounds)
+                            primary: '#3B38A0', // Vibrant Blue (Cards/Buttons)
+                            secondary: '#7A85C1', // Soft Blue (Borders/Text)
+                            light: '#B2B0E8',   // Pale Lavender (Highlights)
                             accent: '#ffffff'
                         }
                     },
                     fontFamily: {
                         sans: ['Montserrat', 'sans-serif'],
                     },
+                    fontSize: {
+                        'base': '1.125rem', // Increased base size
+                        'lg': '1.25rem',
+                        'xl': '1.5rem',
+                        '2xl': '1.75rem',
+                        '3xl': '2.25rem',
+                        '4xl': '3rem',
+                        '5xl': '4rem',
+                    },
                     animation: {
                         'blob': 'blob 7s infinite',
                         'float': 'float 6s ease-in-out infinite',
                         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'shine': 'shine 2s linear infinite',
                     },
                     keyframes: {
                         blob: {
@@ -55,6 +76,10 @@
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
                             '50%': { transform: 'translateY(-20px)' },
+                        },
+                        shine: {
+                            '0%': { backgroundPosition: '200% center' },
+                            '100%': { backgroundPosition: '-200% center' },
                         }
                     }
                 }
@@ -78,7 +103,9 @@
       },
       "sameAs": [
         "https://github.com/aryanshrai03",
-        "https://discord.com/users/1252101579855630346"
+        "https://discord.com/users/1252101579855630346",
+        "https://instagram.com/real.foil",
+        "https://www.reddit.com/user/vroai"
       ]
     }
     </script>
@@ -94,14 +121,15 @@
 
         /* Scrollbar */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 10px;
         }
         ::-webkit-scrollbar-track {
             background: #1A2A80;
         }
         ::-webkit-scrollbar-thumb {
             background: #7A85C1;
-            border-radius: 4px;
+            border-radius: 5px;
+            border: 2px solid #1A2A80;
         }
         ::-webkit-scrollbar-thumb:hover {
             background: #B2B0E8;
@@ -122,21 +150,22 @@
             transition: opacity 0.8s ease-in-out, visibility 0.8s;
             cursor: pointer;
         }
-        .enter-content h1 {
-            font-size: 2rem;
-            color: #B2B0E8;
-            animation: pulse 2s infinite;
-            letter-spacing: 2px;
-        }
 
         /* Glassmorphism Utilities */
         .glass-panel {
             background: rgba(59, 56, 160, 0.25);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(178, 176, 232, 0.2);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(178, 176, 232, 0.15);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
         
+        .glass-panel-heavy {
+            background: rgba(26, 42, 128, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(122, 133, 193, 0.3);
+        }
+
         /* Floating Pill Nav */
         .floating-nav {
             background: rgba(26, 42, 128, 0.85);
@@ -154,6 +183,7 @@
             height: 100%;
             z-index: -1;
             overflow: hidden;
+            pointer-events: none;
         }
         .floating-shape {
             position: absolute;
@@ -176,7 +206,7 @@
 
         /* Profile Image Glow */
         .profile-ring {
-            box-shadow: 0 0 30px rgba(184, 176, 232, 0.4);
+            box-shadow: 0 0 40px rgba(184, 176, 232, 0.3);
         }
 
         /* Utility classes for reveal animation */
@@ -189,6 +219,15 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Skill Bar Animation */
+        .skill-fill {
+            width: 0;
+            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .active .skill-fill {
+            width: var(--percent);
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-brand-secondary selection:text-white">
@@ -200,9 +239,10 @@
 
     <!-- Click-to-Enter Screen -->
     <div id="enterScreen" class="enter-screen">
-        <div class="enter-content text-center">
-            <h1>&lt; CLICK TO ENTER /&gt;</h1>
-            <p class="text-brand-secondary mt-2 text-sm tracking-widest">FOIL PORTFOLIO V2.0</p>
+        <div class="enter-content text-center px-4">
+            <div class="mb-4 text-6xl animate-bounce">👆</div>
+            <h1 class="text-3xl md:text-5xl font-bold text-brand-light tracking-wider">&lt; CLICK TO ENTER /&gt;</h1>
+            <p class="text-brand-secondary mt-4 text-base tracking-[0.3em] uppercase">Experience the Portfolio</p>
         </div>
     </div>
 
@@ -213,46 +253,42 @@
         <div class="floating-shape shape3 rounded-full"></div>
     </div>
 
-    <!-- Floating Pill Navigation -->
-    <nav class="navbar fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-[90%] max-w-5xl transition-all duration-300">
-        <div class="floating-nav rounded-full px-6 py-3 flex justify-between items-center">
+    <!-- Back to Top Button (Floating) -->
+    <button id="backToTop" aria-label="Back to top" class="fixed bottom-8 right-8 z-40 bg-brand-primary text-white w-12 h-12 rounded-full shadow-xl translate-y-20 opacity-0 transition-all duration-300 hover:bg-brand-light hover:-translate-y-1 flex items-center justify-center border border-brand-secondary/30">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="navbar fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-[92%] max-w-6xl transition-all duration-300">
+        <div class="floating-nav rounded-full px-6 py-4 flex justify-between items-center">
             <!-- Logo -->
-            <a href="#home" class="logo flex items-center gap-3 group">
-                <div class="relative w-10 h-10 rounded-full overflow-hidden border-2 border-brand-light">
-                    <img src="https://www.aryansh.site/icon.jpg" alt="Foil" class="w-full h-full object-cover">
+            <a href="#home" aria-label="Go to Home" class="logo flex items-center gap-3 group">
+                <div class="relative w-12 h-12 rounded-full overflow-hidden border-2 border-brand-light">
+                    <img src="https://www.aryansh.site/icon.jpg" alt="Foil Logo" class="w-full h-full object-cover">
                 </div>
-                <span class="font-bold text-xl tracking-wide text-brand-light group-hover:text-white transition-colors">Foil</span>
+                <span class="font-bold text-2xl tracking-wide text-brand-light group-hover:text-white transition-colors hidden sm:block">Foil</span>
             </a>
 
             <!-- Desktop Menu -->
-            <ul class="nav-menu hidden md:flex items-center gap-8 text-sm font-medium text-brand-light/80">
-                <li><a href="#home" class="nav-link hover:text-white hover:scale-105 transition-all">Home</a></li>
-                <li><a href="#about" class="nav-link hover:text-white hover:scale-105 transition-all">About</a></li>
-                <li><a href="#tech" class="nav-link hover:text-white hover:scale-105 transition-all">Stack</a></li>
-                <li><a href="#projects" class="nav-link hover:text-white hover:scale-105 transition-all">Projects</a></li>
-                <li><a href="#contact" class="nav-link hover:text-white hover:scale-105 transition-all">Contact</a></li>
+            <ul class="nav-menu hidden md:flex items-center gap-8 text-base font-medium text-brand-light/90">
+                <li><a href="#home" class="nav-link hover:text-white hover:scale-105 transition-all" aria-label="Home Section">Home</a></li>
+                <li><a href="#about" class="nav-link hover:text-white hover:scale-105 transition-all" aria-label="About Section">About</a></li>
+                <li><a href="#expertise" class="nav-link hover:text-white hover:scale-105 transition-all" aria-label="Expertise Section">Expertise</a></li>
+                <li><a href="#projects" class="nav-link hover:text-white hover:scale-105 transition-all" aria-label="Projects Section">Projects</a></li>
+                <li><a href="#contact" class="nav-link hover:text-white hover:scale-105 transition-all" aria-label="Contact Section">Contact</a></li>
             </ul>
 
             <!-- Controls -->
             <div class="flex items-center gap-4">
                 <!-- Sound Toggle -->
-                <li class="nav-sound-toggle-wrapper-menu list-none">
-                    <button class="nav-sound-toggle w-10 h-10 rounded-full bg-brand-primary/20 flex items-center justify-center hover:bg-brand-primary/40 transition-all border border-brand-secondary/30 text-brand-light" id="soundToggle">
-                        <span class="sound-icon sound-on hidden"><i class="fas fa-volume-up"></i></span>
-                        <span class="sound-icon sound-off"><i class="fas fa-volume-mute"></i></span>
-                    </button>
-                </li>
+                <button class="w-12 h-12 rounded-full bg-brand-primary/20 flex items-center justify-center hover:bg-brand-primary/40 transition-all border border-brand-secondary/30 text-brand-light" id="soundToggle" aria-label="Toggle Sound">
+                    <span class="sound-icon sound-on hidden"><i class="fas fa-volume-up"></i></span>
+                    <span class="sound-icon sound-off"><i class="fas fa-volume-mute"></i></span>
+                </button>
                 
-                <!-- Theme Toggle (Visual only since design is strictly dark/brand focused) -->
-                <li class="nav-theme-toggle-wrapper-menu list-none hidden">
-                    <button class="nav-theme-toggle" id="themeToggle">
-                        <span class="toggle-icon">🌙</span>
-                    </button>
-                </li>
-
                 <!-- Mobile Hamburger -->
-                <div class="md:hidden mobile-nav-wrapper">
-                    <button class="hamburger text-brand-light text-2xl focus:outline-none">
+                <div class="md:hidden">
+                    <button class="hamburger text-brand-light text-3xl focus:outline-none p-2" aria-label="Open Menu">
                         <i class="fas fa-bars"></i>
                     </button>
                 </div>
@@ -260,111 +296,122 @@
         </div>
         
         <!-- Mobile Dropdown -->
-        <div id="mobileMenu" class="hidden absolute top-20 left-0 w-full glass-panel rounded-2xl p-4 flex-col gap-4 text-center md:hidden">
-            <a href="#home" class="block py-2 text-brand-light hover:bg-brand-primary/20 rounded-lg">Home</a>
-            <a href="#about" class="block py-2 text-brand-light hover:bg-brand-primary/20 rounded-lg">About</a>
-            <a href="#tech" class="block py-2 text-brand-light hover:bg-brand-primary/20 rounded-lg">Tech Stack</a>
-            <a href="#projects" class="block py-2 text-brand-light hover:bg-brand-primary/20 rounded-lg">Projects</a>
-            <a href="#contact" class="block py-2 text-brand-light hover:bg-brand-primary/20 rounded-lg">Contact</a>
+        <div id="mobileMenu" class="hidden absolute top-24 left-0 w-full glass-panel-heavy rounded-3xl p-6 flex-col gap-4 text-center md:hidden border border-brand-secondary/30 shadow-2xl">
+            <a href="#home" class="block py-3 text-lg text-brand-light hover:bg-brand-primary/40 rounded-xl transition-colors" aria-label="Mobile Home Link">Home</a>
+            <a href="#about" class="block py-3 text-lg text-brand-light hover:bg-brand-primary/40 rounded-xl transition-colors" aria-label="Mobile About Link">About</a>
+            <a href="#expertise" class="block py-3 text-lg text-brand-light hover:bg-brand-primary/40 rounded-xl transition-colors" aria-label="Mobile Expertise Link">Expertise</a>
+            <a href="#projects" class="block py-3 text-lg text-brand-light hover:bg-brand-primary/40 rounded-xl transition-colors" aria-label="Mobile Projects Link">Projects</a>
+            <a href="#contact" class="block py-3 text-lg text-brand-light hover:bg-brand-primary/40 rounded-xl transition-colors" aria-label="Mobile Contact Link">Contact</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero min-h-screen flex items-center justify-center pt-24 relative z-10">
-        <div class="hero-content container mx-auto px-6 text-center">
-            <div class="profile-image-container relative inline-block mb-8 animate-float">
-                <div class="absolute inset-0 bg-brand-primary blur-2xl opacity-40 rounded-full"></div>
-                <img src="https://www.aryansh.site/icon.jpg" alt="Foil" class="profile-img relative w-40 h-40 md:w-52 md:h-52 rounded-full border-4 border-brand-secondary object-cover profile-ring shadow-2xl">
-                <div class="absolute -bottom-2 right-4 bg-green-500 w-6 h-6 rounded-full border-4 border-brand-dark" title="Available for work"></div>
+    <section id="home" class="hero min-h-screen flex items-center justify-center pt-32 pb-20 relative z-10 px-4">
+        <div class="hero-content container mx-auto text-center">
+            <div class="profile-image-container relative inline-block mb-10 animate-float">
+                <div class="absolute inset-0 bg-brand-primary blur-3xl opacity-40 rounded-full transform scale-125"></div>
+                <img src="https://www.aryansh.site/icon.jpg" alt="Foil Profile" class="profile-img relative w-48 h-48 md:w-60 md:h-60 rounded-full border-[6px] border-brand-secondary/50 object-cover profile-ring shadow-2xl">
+                <div class="absolute -bottom-2 right-6 bg-green-500 w-8 h-8 rounded-full border-4 border-brand-dark animate-pulse" title="Available for work"></div>
             </div>
             
-            <h1 class="hero-title text-4xl md:text-7xl font-extrabold mb-4 tracking-tight">
-                <span class="wave inline-block hover:animate-spin">👋</span> Hey, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-secondary to-brand-light">Foil</span>
+            <h1 class="hero-title text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 tracking-tight text-white">
+                <span class="wave inline-block hover:animate-spin origin-bottom-right">👋</span> Hey, I'm <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-secondary via-brand-light to-white animate-shine bg-[length:200%_auto]">Foil</span>
             </h1>
             
-            <h2 class="hero-subtitle text-xl md:text-2xl text-brand-secondary font-medium mb-6">Aryansh Rai</h2>
+            <h2 class="hero-subtitle text-2xl md:text-3xl text-brand-secondary font-medium mb-8">Aryansh Rai</h2>
             
-            <div class="typing-container h-8 mb-6 text-lg md:text-xl font-mono text-brand-light">
+            <div class="typing-container h-10 mb-8 text-xl md:text-2xl font-mono text-brand-light/90">
                 <span class="typing-text"></span><span class="cursor">|</span>
             </div>
             
-            <p class="hero-description max-w-2xl mx-auto text-gray-300 text-base md:text-lg mb-8 leading-relaxed">
-                A passionate Full-Stack Developer from India 🇮🇳 specializing in building <span class="text-brand-light font-semibold">Enterprise AI Tools</span>, SaaS platforms, and digital experiences.
+            <p class="hero-description max-w-3xl mx-auto text-gray-300 text-lg md:text-xl mb-10 leading-relaxed font-light">
+                A passionate Full-Stack Developer from India 🇮🇳 specializing in building <span class="text-brand-light font-semibold border-b border-brand-light/30">Enterprise AI Tools</span>, SaaS platforms, and digital experiences.
             </p>
             
-            <div class="hero-buttons flex flex-wrap justify-center gap-4">
-                <a href="#projects" class="btn btn-primary px-8 py-3 rounded-full bg-brand-primary hover:bg-brand-secondary text-white font-bold shadow-lg shadow-brand-primary/30 transition-all transform hover:-translate-y-1">
+            <div class="hero-buttons flex flex-col sm:flex-row justify-center gap-6">
+                <a href="#projects" aria-label="View Projects" class="btn btn-primary px-10 py-4 rounded-full bg-brand-primary hover:bg-brand-secondary text-white text-lg font-bold shadow-[0_0_20px_rgba(59,56,160,0.5)] transition-all transform hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(122,133,193,0.6)]">
                     <i class="fas fa-rocket mr-2"></i> View Projects
                 </a>
-                <a href="https://github.com/aryanshrai03" target="_blank" class="btn btn-secondary px-8 py-3 rounded-full bg-transparent border-2 border-brand-secondary text-brand-light hover:bg-brand-secondary hover:text-white font-bold transition-all transform hover:-translate-y-1">
-                    <i class="fab fa-github mr-2"></i> GitHub Profile
+                <a href="#contact" aria-label="Contact Me" class="btn btn-secondary px-10 py-4 rounded-full bg-transparent border-2 border-brand-secondary text-brand-light hover:bg-brand-secondary hover:text-white text-lg font-bold transition-all transform hover:-translate-y-1">
+                    <i class="fas fa-paper-plane mr-2"></i> Let's Talk
                 </a>
             </div>
             
-            <div class="scroll-indicator absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-brand-secondary">
-                <i class="fas fa-chevron-down text-2xl"></i>
+            <div class="scroll-indicator absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-brand-secondary/70 hover:text-white cursor-pointer">
+                <a href="#about" aria-label="Scroll Down"><i class="fas fa-chevron-down text-3xl"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about py-20 relative z-10">
+    <!-- About & Donation Section -->
+    <section id="about" class="about py-24 relative z-10">
         <div class="container mx-auto px-6">
             <div class="section-header text-center mb-16 reveal">
-                <h2 class="section-title text-3xl md:text-4xl font-bold text-white mb-4">
-                    <i class="fas fa-user-astronaut text-brand-secondary mr-2"></i> About Me
+                <h2 class="section-title text-4xl md:text-5xl font-bold text-white mb-6">
+                    <i class="fas fa-user-astronaut text-brand-secondary mr-3"></i> About Me
                 </h2>
-                <div class="w-20 h-1 bg-brand-primary mx-auto rounded-full"></div>
+                <div class="w-24 h-1.5 bg-brand-primary mx-auto rounded-full opacity-80"></div>
             </div>
 
-            <div class="about-content grid md:grid-cols-2 gap-12 items-center">
-                <div class="about-text glass-panel p-8 rounded-2xl reveal">
-                    <p class="about-intro text-gray-300 leading-relaxed text-lg mb-6">
-                        I'm <strong>Foil (Aryansh Rai)</strong>, a Full-Stack Developer and AI enthusiast. I don't just write code; I architect solutions that bridge the gap between complex AI logic and user-friendly interfaces.
+            <div class="about-content grid lg:grid-cols-2 gap-16 items-start">
+                <!-- Text Content -->
+                <div class="about-text glass-panel p-8 md:p-10 rounded-[2rem] reveal hover:border-brand-light/30 transition-colors">
+                    <p class="about-intro text-gray-200 leading-loose text-lg md:text-xl mb-8 font-light">
+                        I'm <strong>Foil (Aryansh Rai)</strong>, a Full-Stack Developer and AI enthusiast. I don't just write code; I architect solutions that bridge the gap between complex AI logic and user-friendly interfaces. My goal is to democratize AI through intuitive web tools.
                     </p>
-                    <blockquote class="quote border-l-4 border-brand-secondary pl-4 italic text-brand-light my-6">
-                        "Coding let's you convert your imagination into an Art!"
-                    </blockquote>
-                    <div class="tags flex flex-wrap gap-2 mt-4">
-                        <span class="px-3 py-1 bg-brand-primary/20 text-brand-light rounded-full text-xs border border-brand-primary/30">#Innovation</span>
-                        <span class="px-3 py-1 bg-brand-primary/20 text-brand-light rounded-full text-xs border border-brand-primary/30">#AI_Revolution</span>
-                        <span class="px-3 py-1 bg-brand-primary/20 text-brand-light rounded-full text-xs border border-brand-primary/30">#FullStack</span>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                        <div class="bg-brand-primary/10 rounded-xl p-4 border border-brand-secondary/20">
+                            <h4 class="text-brand-light font-bold mb-1">Experience</h4>
+                            <p class="text-sm text-gray-300">Full Stack & AI Dev</p>
+                        </div>
+                        <div class="bg-brand-primary/10 rounded-xl p-4 border border-brand-secondary/20">
+                            <h4 class="text-brand-light font-bold mb-1">Location</h4>
+                            <p class="text-sm text-gray-300">India 🇮🇳</p>
+                        </div>
                     </div>
+
+                    <a href="https://buymeacoffee.com/aryanshrai" target="_blank" aria-label="Support my work" class="w-full group relative overflow-hidden rounded-xl bg-[#FFDD00] text-black font-bold py-4 px-6 flex items-center justify-center gap-3 transition-transform hover:scale-[1.02] shadow-lg">
+                        <img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="Buy me a coffee" class="h-6 w-auto">
+                        <span class="text-lg">Support My Work</span>
+                        <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                    </a>
                 </div>
 
-                <div class="achievements grid gap-4 reveal">
-                    <div class="achievement-card bg-gradient-to-r from-brand-primary/10 to-brand-dark p-6 rounded-xl border border-brand-primary/30 hover:border-brand-light transition-all group">
-                        <div class="flex items-start gap-4">
-                            <div class="icon-box p-3 bg-brand-primary/20 rounded-lg text-brand-light group-hover:scale-110 transition-transform">
-                                <i class="fas fa-rocket fa-lg"></i>
+                <!-- Achievements -->
+                <div class="achievements grid gap-6 reveal">
+                    <div class="achievement-card bg-gradient-to-r from-brand-primary/20 to-brand-dark p-6 rounded-2xl border border-brand-primary/30 hover:border-brand-light transition-all group hover:-translate-y-1 shadow-lg">
+                        <div class="flex items-center gap-6">
+                            <div class="icon-box p-4 bg-brand-primary rounded-xl text-white shadow-lg group-hover:rotate-12 transition-transform">
+                                <i class="fas fa-rocket fa-2xl"></i>
                             </div>
                             <div>
-                                <h3 class="font-bold text-white text-lg">Founder of FoilAI</h3>
-                                <p class="text-sm text-gray-400">AI tool & platform for smart solutions.</p>
+                                <h3 class="font-bold text-white text-xl mb-1">Founder of FoilAI</h3>
+                                <p class="text-base text-gray-300">AI tool & platform for smart solutions.</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="achievement-card bg-gradient-to-r from-brand-primary/10 to-brand-dark p-6 rounded-xl border border-brand-primary/30 hover:border-brand-light transition-all group">
-                        <div class="flex items-start gap-4">
-                            <div class="icon-box p-3 bg-brand-primary/20 rounded-lg text-brand-light group-hover:scale-110 transition-transform">
-                                <i class="fas fa-brain fa-lg"></i>
+                    <div class="achievement-card bg-gradient-to-r from-brand-primary/20 to-brand-dark p-6 rounded-2xl border border-brand-primary/30 hover:border-brand-light transition-all group hover:-translate-y-1 shadow-lg">
+                        <div class="flex items-center gap-6">
+                            <div class="icon-box p-4 bg-brand-primary rounded-xl text-white shadow-lg group-hover:rotate-12 transition-transform">
+                                <i class="fas fa-brain fa-2xl"></i>
                             </div>
                             <div>
-                                <h3 class="font-bold text-white text-lg">Founder of VroAI</h3>
-                                <p class="text-sm text-gray-400">Advanced AI Chatbot & GPT services.</p>
+                                <h3 class="font-bold text-white text-xl mb-1">Founder of VroAI</h3>
+                                <p class="text-base text-gray-300">Advanced AI Chatbot & GPT services.</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="achievement-card bg-gradient-to-r from-brand-primary/10 to-brand-dark p-6 rounded-xl border border-brand-primary/30 hover:border-brand-light transition-all group">
-                        <div class="flex items-start gap-4">
-                            <div class="icon-box p-3 bg-brand-primary/20 rounded-lg text-brand-light group-hover:scale-110 transition-transform">
-                                <i class="fas fa-robot fa-lg"></i>
+                    <div class="achievement-card bg-gradient-to-r from-brand-primary/20 to-brand-dark p-6 rounded-2xl border border-brand-primary/30 hover:border-brand-light transition-all group hover:-translate-y-1 shadow-lg">
+                        <div class="flex items-center gap-6">
+                            <div class="icon-box p-4 bg-brand-primary rounded-xl text-white shadow-lg group-hover:rotate-12 transition-transform">
+                                <i class="fas fa-robot fa-2xl"></i>
                             </div>
                             <div>
-                                <h3 class="font-bold text-white text-lg">Co-Founder KalaBilla</h3>
-                                <p class="text-sm text-gray-400">High-performance Discord bot infrastructure.</p>
+                                <h3 class="font-bold text-white text-xl mb-1">Co-Founder KalaBilla</h3>
+                                <p class="text-base text-gray-300">High-performance Discord bot infrastructure.</p>
                             </div>
                         </div>
                     </div>
@@ -373,64 +420,90 @@
         </div>
     </section>
 
-    <!-- Tech Stack Section -->
-    <section id="tech" class="tech-stack py-20 bg-brand-dark/50 relative z-10">
+    <!-- Expertise Matrix (New) -->
+    <section id="expertise" class="py-24 bg-brand-dark/50 relative z-10">
         <div class="container mx-auto px-6">
-            <h2 class="section-title text-3xl md:text-4xl font-bold text-white mb-12 text-center reveal">
-                <i class="fas fa-layer-group text-brand-secondary mr-2"></i> Tech Arsenal
+            <h2 class="section-title text-4xl md:text-5xl font-bold text-white mb-16 text-center reveal">
+                <i class="fas fa-layer-group text-brand-secondary mr-3"></i> Expertise Matrix
             </h2>
             
-            <div class="tech-content grid md:grid-cols-2 gap-12">
-                <!-- Expert In -->
-                <div class="tech-category reveal">
-                    <h3 class="text-xl font-bold text-brand-light mb-6 flex items-center">
-                        <i class="fas fa-star mr-2 text-yellow-400"></i> Core Technologies
-                    </h3>
-                    <div class="grid grid-cols-3 sm:grid-cols-4 gap-4">
-                        <div class="tech-card p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-brand-primary/30 hover:border-brand-light transition-all text-center group cursor-default">
-                            <i class="fab fa-html5 text-3xl text-orange-500 mb-2 group-hover:scale-110 transition-transform"></i>
-                            <span class="block text-xs font-medium text-gray-300">HTML5</span>
+            <div class="grid lg:grid-cols-2 gap-12">
+                
+                <!-- Technical Proficiency Bars -->
+                <div class="glass-panel p-8 rounded-[2rem] reveal">
+                    <h3 class="text-2xl font-bold text-brand-light mb-8 border-b border-brand-secondary/30 pb-4">Technical Proficiency</h3>
+                    
+                    <div class="space-y-6">
+                        <!-- Item -->
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-white">Frontend (HTML/CSS/JS/Tailwind)</span>
+                                <span class="text-brand-secondary">95%</span>
+                            </div>
+                            <div class="h-3 bg-brand-dark rounded-full overflow-hidden border border-brand-secondary/30">
+                                <div class="h-full bg-brand-light skill-fill" style="--percent: 95%"></div>
+                            </div>
                         </div>
-                        <div class="tech-card p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-brand-primary/30 hover:border-brand-light transition-all text-center group cursor-default">
-                            <i class="fab fa-css3-alt text-3xl text-blue-500 mb-2 group-hover:scale-110 transition-transform"></i>
-                            <span class="block text-xs font-medium text-gray-300">CSS3</span>
+                        <!-- Item -->
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-white">Backend (PHP/Node.js/SQL)</span>
+                                <span class="text-brand-secondary">85%</span>
+                            </div>
+                            <div class="h-3 bg-brand-dark rounded-full overflow-hidden border border-brand-secondary/30">
+                                <div class="h-full bg-brand-secondary skill-fill" style="--percent: 85%"></div>
+                            </div>
                         </div>
-                        <div class="tech-card p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-brand-primary/30 hover:border-brand-light transition-all text-center group cursor-default">
-                            <i class="fab fa-js text-3xl text-yellow-400 mb-2 group-hover:scale-110 transition-transform"></i>
-                            <span class="block text-xs font-medium text-gray-300">JS</span>
+                        <!-- Item -->
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-white">AI Integration (LLMs/Python)</span>
+                                <span class="text-brand-secondary">90%</span>
+                            </div>
+                            <div class="h-3 bg-brand-dark rounded-full overflow-hidden border border-brand-secondary/30">
+                                <div class="h-full bg-brand-primary skill-fill" style="--percent: 90%"></div>
+                            </div>
                         </div>
-                        <div class="tech-card p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-brand-primary/30 hover:border-brand-light transition-all text-center group cursor-default">
-                            <i class="fab fa-php text-3xl text-purple-400 mb-2 group-hover:scale-110 transition-transform"></i>
-                            <span class="block text-xs font-medium text-gray-300">PHP</span>
-                        </div>
-                        <div class="tech-card p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-brand-primary/30 hover:border-brand-light transition-all text-center group cursor-default">
-                            <i class="fas fa-database text-3xl text-brand-secondary mb-2 group-hover:scale-110 transition-transform"></i>
-                            <span class="block text-xs font-medium text-gray-300">SQL</span>
-                        </div>
-                        <div class="tech-card p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-brand-primary/30 hover:border-brand-light transition-all text-center group cursor-default">
-                            <i class="fab fa-uikit text-3xl text-cyan-400 mb-2 group-hover:scale-110 transition-transform"></i>
-                            <span class="block text-xs font-medium text-gray-300">Tailwind</span>
+                         <!-- Item -->
+                         <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-white">Discord Bot Development</span>
+                                <span class="text-brand-secondary">92%</span>
+                            </div>
+                            <div class="h-3 bg-brand-dark rounded-full overflow-hidden border border-brand-secondary/30">
+                                <div class="h-full bg-brand-light skill-fill" style="--percent: 92%"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Learning -->
-                <div class="tech-category reveal">
-                    <h3 class="text-xl font-bold text-brand-light mb-6 flex items-center">
-                        <i class="fas fa-flask mr-2 text-green-400"></i> Exploring & Evolving
-                    </h3>
-                    <div class="grid grid-cols-3 gap-4">
-                        <div class="tech-card p-4 rounded-xl bg-white/5 border border-dashed border-white/20 hover:border-solid hover:border-green-400 transition-all text-center group">
-                            <i class="fab fa-node-js text-3xl text-green-500 mb-2 group-hover:rotate-12 transition-transform"></i>
-                            <span class="block text-xs font-medium text-gray-300">Node.js</span>
+                <!-- Tools Grid -->
+                <div class="reveal">
+                    <h3 class="text-2xl font-bold text-brand-light mb-8 px-4 text-center lg:text-left">Tools & Frameworks</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                        <div class="p-6 rounded-2xl bg-brand-primary/10 border border-brand-secondary/20 text-center hover:bg-brand-primary/30 transition-colors group">
+                            <i class="fab fa-html5 text-4xl text-orange-500 mb-3 group-hover:scale-110 transition-transform block"></i>
+                            <span class="text-gray-300 font-medium">HTML5</span>
                         </div>
-                        <div class="tech-card p-4 rounded-xl bg-white/5 border border-dashed border-white/20 hover:border-solid hover:border-yellow-400 transition-all text-center group">
-                            <i class="fab fa-python text-3xl text-yellow-300 mb-2 group-hover:rotate-12 transition-transform"></i>
-                            <span class="block text-xs font-medium text-gray-300">Python</span>
+                        <div class="p-6 rounded-2xl bg-brand-primary/10 border border-brand-secondary/20 text-center hover:bg-brand-primary/30 transition-colors group">
+                            <i class="fab fa-css3-alt text-4xl text-blue-500 mb-3 group-hover:scale-110 transition-transform block"></i>
+                            <span class="text-gray-300 font-medium">CSS3</span>
                         </div>
-                        <div class="tech-card p-4 rounded-xl bg-white/5 border border-dashed border-white/20 hover:border-solid hover:border-blue-400 transition-all text-center group">
-                            <i class="fas fa-cubes text-3xl text-blue-300 mb-2 group-hover:rotate-12 transition-transform"></i>
-                            <span class="block text-xs font-medium text-gray-300">LLMs</span>
+                        <div class="p-6 rounded-2xl bg-brand-primary/10 border border-brand-secondary/20 text-center hover:bg-brand-primary/30 transition-colors group">
+                            <i class="fab fa-js text-4xl text-yellow-400 mb-3 group-hover:scale-110 transition-transform block"></i>
+                            <span class="text-gray-300 font-medium">JavaScript</span>
+                        </div>
+                        <div class="p-6 rounded-2xl bg-brand-primary/10 border border-brand-secondary/20 text-center hover:bg-brand-primary/30 transition-colors group">
+                            <i class="fab fa-php text-4xl text-purple-400 mb-3 group-hover:scale-110 transition-transform block"></i>
+                            <span class="text-gray-300 font-medium">PHP</span>
+                        </div>
+                        <div class="p-6 rounded-2xl bg-brand-primary/10 border border-brand-secondary/20 text-center hover:bg-brand-primary/30 transition-colors group">
+                            <i class="fab fa-python text-4xl text-yellow-300 mb-3 group-hover:scale-110 transition-transform block"></i>
+                            <span class="text-gray-300 font-medium">Python</span>
+                        </div>
+                        <div class="p-6 rounded-2xl bg-brand-primary/10 border border-brand-secondary/20 text-center hover:bg-brand-primary/30 transition-colors group">
+                            <i class="fas fa-database text-4xl text-brand-light mb-3 group-hover:scale-110 transition-transform block"></i>
+                            <span class="text-gray-300 font-medium">SQL</span>
                         </div>
                     </div>
                 </div>
@@ -439,193 +512,265 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects py-20 relative z-10">
+    <section id="projects" class="projects py-24 relative z-10">
         <div class="container mx-auto px-6">
-            <h2 class="section-title text-3xl md:text-4xl font-bold text-white mb-2 text-center reveal">
-                <i class="fas fa-code-branch text-brand-secondary mr-2"></i> Featured Projects
+            <h2 class="section-title text-4xl md:text-5xl font-bold text-white mb-4 text-center reveal">
+                <i class="fas fa-code-branch text-brand-secondary mr-3"></i> Featured Projects
             </h2>
-            <p class="section-subtitle text-center text-gray-400 mb-12 reveal">Innovations in AI, Automation, and Web Technology</p>
+            <p class="section-subtitle text-center text-brand-light/80 text-lg mb-16 reveal">Innovations in AI, Automation, and Web Technology</p>
 
             <div class="projects-grid grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
                 <!-- Project 1 -->
-                <div class="project-card group glass-panel rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 reveal">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="p-3 bg-brand-primary/30 rounded-lg text-brand-light">
-                            <i class="fas fa-brain fa-xl"></i>
+                <div class="project-card group glass-panel rounded-2xl p-8 hover:-translate-y-3 transition-transform duration-300 reveal flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="p-4 bg-brand-primary/30 rounded-2xl text-brand-light border border-brand-secondary/30">
+                            <i class="fas fa-brain fa-2xl"></i>
                         </div>
-                        <a href="https://foilai.in" target="_blank" class="text-gray-400 hover:text-white"><i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://foilai.in" target="_blank" aria-label="Visit FoilAI" class="text-brand-secondary hover:text-white transition-colors"><i class="fas fa-external-link-alt fa-lg"></i></a>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">FoilAI</h3>
-                    <p class="text-gray-400 text-sm mb-4 h-16 overflow-hidden">AI platform for smart solutions - Building the future of AI-powered applications.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-xs px-2 py-1 rounded bg-brand-dark text-brand-secondary border border-brand-primary/20">AI</span>
-                        <span class="text-xs px-2 py-1 rounded bg-brand-dark text-brand-secondary border border-brand-primary/20">SaaS</span>
+                    <h3 class="text-2xl font-bold text-white mb-3">FoilAI</h3>
+                    <p class="text-gray-300 text-base mb-6 flex-grow">AI tool & platform for smart solutions - Building the future of AI-powered applications.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-brand-dark text-brand-light border border-brand-secondary/30">AI</span>
+                        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-brand-dark text-brand-light border border-brand-secondary/30">SaaS</span>
                     </div>
                 </div>
 
                 <!-- Project 2 -->
-                <div class="project-card group glass-panel rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 reveal">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="p-3 bg-brand-primary/30 rounded-lg text-brand-light">
-                            <i class="fas fa-comments fa-xl"></i>
+                <div class="project-card group glass-panel rounded-2xl p-8 hover:-translate-y-3 transition-transform duration-300 reveal flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="p-4 bg-brand-primary/30 rounded-2xl text-brand-light border border-brand-secondary/30">
+                            <i class="fas fa-comments fa-2xl"></i>
                         </div>
-                        <a href="https://gpt.vroai.in" target="_blank" class="text-gray-400 hover:text-white"><i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://gpt.vroai.in" target="_blank" aria-label="Visit VroGPT" class="text-brand-secondary hover:text-white transition-colors"><i class="fas fa-external-link-alt fa-lg"></i></a>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">VroGPT</h3>
-                    <p class="text-gray-400 text-sm mb-4 h-16 overflow-hidden">Advanced AI Chatbot & GPT service - Experience next-gen conversational AI.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-xs px-2 py-1 rounded bg-brand-dark text-brand-secondary border border-brand-primary/20">LLM</span>
-                        <span class="text-xs px-2 py-1 rounded bg-brand-dark text-brand-secondary border border-brand-primary/20">Chatbot</span>
+                    <h3 class="text-2xl font-bold text-white mb-3">VroGPT</h3>
+                    <p class="text-gray-300 text-base mb-6 flex-grow">Advanced AI Chatbot & GPT service - Experience next-gen conversational AI.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-brand-dark text-brand-light border border-brand-secondary/30">LLM</span>
+                        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-brand-dark text-brand-light border border-brand-secondary/30">Chatbot</span>
                     </div>
                 </div>
 
                 <!-- Project 3 -->
-                <div class="project-card group glass-panel rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 reveal">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="p-3 bg-brand-primary/30 rounded-lg text-brand-light">
-                            <i class="fab fa-discord fa-xl"></i>
+                <div class="project-card group glass-panel rounded-2xl p-8 hover:-translate-y-3 transition-transform duration-300 reveal flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="p-4 bg-brand-primary/30 rounded-2xl text-brand-light border border-brand-secondary/30">
+                            <i class="fab fa-discord fa-2xl"></i>
                         </div>
-                        <a href="https://kalabilla.in" target="_blank" class="text-gray-400 hover:text-white"><i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://kalabilla.in" target="_blank" aria-label="Visit Kala Billa" class="text-brand-secondary hover:text-white transition-colors"><i class="fas fa-external-link-alt fa-lg"></i></a>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Kala Billa Bot</h3>
-                    <p class="text-gray-400 text-sm mb-4 h-16 overflow-hidden">Powerful Discord bot project - Enhance your Discord server with advanced features.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-xs px-2 py-1 rounded bg-brand-dark text-brand-secondary border border-brand-primary/20">Discord.js</span>
-                        <span class="text-xs px-2 py-1 rounded bg-brand-dark text-brand-secondary border border-brand-primary/20">Bot</span>
+                    <h3 class="text-2xl font-bold text-white mb-3">Kala Billa Bot</h3>
+                    <p class="text-gray-300 text-base mb-6 flex-grow">Powerful Discord bot project - Enhance your Discord server with advanced features.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-brand-dark text-brand-light border border-brand-secondary/30">Discord.js</span>
+                        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-brand-dark text-brand-light border border-brand-secondary/30">Bot</span>
                     </div>
                 </div>
 
                 <!-- Project 4 -->
-                <div class="project-card group glass-panel rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 reveal">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="p-3 bg-brand-primary/30 rounded-lg text-brand-light">
-                            <i class="fas fa-book-open fa-xl"></i>
+                <div class="project-card group glass-panel rounded-2xl p-8 hover:-translate-y-3 transition-transform duration-300 reveal flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="p-4 bg-brand-primary/30 rounded-2xl text-brand-light border border-brand-secondary/30">
+                            <i class="fas fa-book-open fa-2xl"></i>
                         </div>
-                        <a href="https://dfamo.co.uk" target="_blank" class="text-gray-400 hover:text-white"><i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://dfamo.co.uk" target="_blank" aria-label="Visit DfamoAI" class="text-brand-secondary hover:text-white transition-colors"><i class="fas fa-external-link-alt fa-lg"></i></a>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">DfamoAI</h3>
-                    <p class="text-gray-400 text-sm mb-4 h-16 overflow-hidden">Homework helper AI Chatbot - Your intelligent study companion.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-xs px-2 py-1 rounded bg-brand-dark text-brand-secondary border border-brand-primary/20">EdTech</span>
-                        <span class="text-xs px-2 py-1 rounded bg-brand-dark text-brand-secondary border border-brand-primary/20">Helper</span>
+                    <h3 class="text-2xl font-bold text-white mb-3">DfamoAI</h3>
+                    <p class="text-gray-300 text-base mb-6 flex-grow">Homework helper AI Chatbot - Your intelligent study companion.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-brand-dark text-brand-light border border-brand-secondary/30">EdTech</span>
+                        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-brand-dark text-brand-light border border-brand-secondary/30">AI</span>
                     </div>
                 </div>
-
-                <!-- Project 5 -->
-                <div class="project-card group glass-panel rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 reveal">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="p-3 bg-brand-primary/30 rounded-lg text-brand-light">
-                            <i class="fas fa-code fa-xl"></i>
+                
+                 <!-- Project 5 -->
+                 <div class="project-card group glass-panel rounded-2xl p-8 hover:-translate-y-3 transition-transform duration-300 reveal flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="p-4 bg-brand-primary/30 rounded-2xl text-brand-light border border-brand-secondary/30">
+                            <i class="fas fa-pen-fancy fa-2xl"></i>
                         </div>
-                        <a href="https://tinymark-lang.page.gd" target="_blank" class="text-gray-400 hover:text-white"><i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://dixo.foilai.in" target="_blank" aria-label="Visit DixoAI" class="text-brand-secondary hover:text-white transition-colors"><i class="fas fa-external-link-alt fa-lg"></i></a>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Tinymark</h3>
-                    <p class="text-gray-400 text-sm mb-4 h-16 overflow-hidden">Custom coding language - A powerful and intuitive programming language concept.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-xs px-2 py-1 rounded bg-brand-dark text-brand-secondary border border-brand-primary/20">Compiler</span>
-                        <span class="text-xs px-2 py-1 rounded bg-brand-dark text-brand-secondary border border-brand-primary/20">Lang</span>
+                    <h3 class="text-2xl font-bold text-white mb-3">Foil DixoAI</h3>
+                    <p class="text-gray-300 text-base mb-6 flex-grow">AI Diary Writer - Your personal AI-powered journal companion.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-brand-dark text-brand-light border border-brand-secondary/30">NLP</span>
+                        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-brand-dark text-brand-light border border-brand-secondary/30">Journal</span>
                     </div>
                 </div>
 
                 <!-- Project 6 -->
-                <div class="project-card group glass-panel rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 reveal">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="p-3 bg-brand-primary/30 rounded-lg text-brand-light">
-                            <i class="fas fa-pen-fancy fa-xl"></i>
+                <div class="project-card group glass-panel rounded-2xl p-8 hover:-translate-y-3 transition-transform duration-300 reveal flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="p-4 bg-brand-primary/30 rounded-2xl text-brand-light border border-brand-secondary/30">
+                            <i class="fas fa-server fa-2xl"></i>
                         </div>
-                        <a href="https://dixo.foilai.in" target="_blank" class="text-gray-400 hover:text-white"><i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://hostmy.xo.je" target="_blank" aria-label="Visit HostMy" class="text-brand-secondary hover:text-white transition-colors"><i class="fas fa-external-link-alt fa-lg"></i></a>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Foil DixoAI</h3>
-                    <p class="text-gray-400 text-sm mb-4 h-16 overflow-hidden">AI Diary Writer - Your personal AI-powered journal companion.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-xs px-2 py-1 rounded bg-brand-dark text-brand-secondary border border-brand-primary/20">NLP</span>
-                        <span class="text-xs px-2 py-1 rounded bg-brand-dark text-brand-secondary border border-brand-primary/20">Journal</span>
+                    <h3 class="text-2xl font-bold text-white mb-3">HostMy Tools</h3>
+                    <p class="text-gray-300 text-base mb-6 flex-grow">Instantly host your HTML pages or PDF files - Simple and fast hosting solution.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-brand-dark text-brand-light border border-brand-secondary/30">Tools</span>
+                        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-brand-dark text-brand-light border border-brand-secondary/30">Hosting</span>
                     </div>
-                </div>
-
-                <!-- Project 7 -->
-                <div class="project-card group glass-panel rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 reveal">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="p-3 bg-brand-primary/30 rounded-lg text-brand-light">
-                            <i class="fas fa-server fa-xl"></i>
-                        </div>
-                        <a href="https://hostmy.xo.je" target="_blank" class="text-gray-400 hover:text-white"><i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">HostMy Tools</h3>
-                    <p class="text-gray-400 text-sm mb-4 h-16 overflow-hidden">Instantly host your HTML pages or PDF files - Simple and fast.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-xs px-2 py-1 rounded bg-brand-dark text-brand-secondary border border-brand-primary/20">Utility</span>
-                        <span class="text-xs px-2 py-1 rounded bg-brand-dark text-brand-secondary border border-brand-primary/20">Hosting</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section id="stats" class="stats py-20 bg-brand-dark/50 relative z-10">
-        <div class="container mx-auto px-6">
-            <h2 class="section-title text-3xl font-bold text-white mb-12 text-center reveal">
-                <i class="fas fa-chart-line text-brand-secondary mr-2"></i> Activity Log
-            </h2>
-            <div class="stats-grid flex flex-col md:flex-row justify-center items-center gap-6 reveal">
-                <div class="stat-card hover:scale-105 transition-transform duration-300">
-                    <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=aryanshrai03&theme=tokyonight" alt="GitHub Profile Details" loading="lazy" class="rounded-xl shadow-lg border border-brand-primary/30">
-                </div>
-                <div class="stat-card hover:scale-105 transition-transform duration-300">
-                    <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=aryanshrai03&theme=tokyonight" alt="Top Languages" loading="lazy" class="rounded-xl shadow-lg border border-brand-primary/30">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact py-20 relative z-10">
+    <!-- Sleek Contact & Socials Section -->
+    <section id="contact" class="contact py-24 bg-brand-dark/50 relative z-10">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="section-title text-3xl md:text-4xl font-bold text-white mb-4 reveal">
-                <i class="fas fa-paper-plane text-brand-secondary mr-2"></i> Get In Touch
+            <h2 class="section-title text-4xl md:text-5xl font-bold text-white mb-6 reveal">
+                <i class="fas fa-globe text-brand-secondary mr-3"></i> Connect With Me
             </h2>
-            <p class="section-subtitle text-gray-400 mb-12 reveal">Have an idea? Let's build something amazing together!</p>
+            <p class="section-subtitle text-brand-light/80 text-xl mb-12 reveal">Join the community or slide into my DMs.</p>
             
-            <div class="contact-grid grid md:grid-cols-3 gap-6 max-w-4xl mx-auto reveal">
-                <a href="https://github.com/aryanshrai03" target="_blank" class="contact-card glass-panel p-8 rounded-2xl hover:bg-brand-primary/20 transition-all group">
-                    <div class="contact-icon text-4xl text-brand-light mb-4 group-hover:scale-110 transition-transform">
-                        <i class="fab fa-github"></i>
-                    </div>
-                    <h3 class="font-bold text-lg text-white">GitHub</h3>
-                    <p class="text-brand-secondary text-sm">@aryanshrai03</p>
-                </a>
+            <div class="contact-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto reveal">
                 
-                <a href="https://discord.com/users/1252101579855630346" target="_blank" class="contact-card glass-panel p-8 rounded-2xl hover:bg-brand-primary/20 transition-all group">
-                    <div class="contact-icon text-4xl text-brand-light mb-4 group-hover:scale-110 transition-transform">
-                        <i class="fab fa-discord"></i>
+                <!-- Instagram -->
+                <a href="https://instagram.com/real.foil" target="_blank" aria-label="Instagram" class="flex items-center gap-4 p-4 rounded-xl border border-brand-secondary/30 bg-white/5 hover:bg-brand-primary/20 transition-all hover:scale-105 group">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-purple-500 to-pink-500 flex items-center justify-center text-white">
+                        <i class="fab fa-instagram fa-lg"></i>
                     </div>
-                    <h3 class="font-bold text-lg text-white">Discord</h3>
-                    <p class="text-brand-secondary text-sm">Join Server</p>
+                    <div class="text-left">
+                        <h4 class="font-bold text-white text-lg">Instagram</h4>
+                        <p class="text-brand-light text-sm">@real.foil</p>
+                    </div>
                 </a>
-                
-                <a href="mailto:realpablopebble@gmail.com" class="contact-card glass-panel p-8 rounded-2xl hover:bg-brand-primary/20 transition-all group">
-                    <div class="contact-icon text-4xl text-brand-light mb-4 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-envelope"></i>
+
+                <!-- Reddit -->
+                <a href="https://www.reddit.com/user/vroai" target="_blank" aria-label="Reddit" class="flex items-center gap-4 p-4 rounded-xl border border-brand-secondary/30 bg-white/5 hover:bg-brand-primary/20 transition-all hover:scale-105 group">
+                    <div class="w-12 h-12 rounded-full bg-orange-600 flex items-center justify-center text-white">
+                        <i class="fab fa-reddit-alien fa-lg"></i>
                     </div>
-                    <h3 class="font-bold text-lg text-white">Email</h3>
-                    <p class="text-brand-secondary text-sm break-all">realpablopebble@gmail.com</p>
+                    <div class="text-left">
+                        <h4 class="font-bold text-white text-lg">Reddit</h4>
+                        <p class="text-brand-light text-sm">u/vroai</p>
+                    </div>
+                </a>
+
+                <!-- GitHub -->
+                <a href="https://github.com/aryanshrai03" target="_blank" aria-label="GitHub" class="flex items-center gap-4 p-4 rounded-xl border border-brand-secondary/30 bg-white/5 hover:bg-brand-primary/20 transition-all hover:scale-105 group">
+                    <div class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center text-white">
+                        <i class="fab fa-github fa-lg"></i>
+                    </div>
+                    <div class="text-left">
+                        <h4 class="font-bold text-white text-lg">GitHub</h4>
+                        <p class="text-brand-light text-sm">@aryanshrai03</p>
+                    </div>
+                </a>
+
+                <!-- Discord User -->
+                <a href="https://discord.com/users/1252101579855630346" target="_blank" aria-label="Discord User" class="flex items-center gap-4 p-4 rounded-xl border border-brand-secondary/30 bg-white/5 hover:bg-brand-primary/20 transition-all hover:scale-105 group">
+                    <div class="w-12 h-12 rounded-full bg-[#5865F2] flex items-center justify-center text-white">
+                        <i class="fab fa-discord fa-lg"></i>
+                    </div>
+                    <div class="text-left">
+                        <h4 class="font-bold text-white text-lg">Discord</h4>
+                        <p class="text-brand-light text-sm">Add Me</p>
+                    </div>
+                </a>
+
+                <!-- Discord Server -->
+                <a href="https://discord.gg/QEFytsQPCR" target="_blank" aria-label="Discord Server" class="flex items-center gap-4 p-4 rounded-xl border border-brand-secondary/30 bg-white/5 hover:bg-brand-primary/20 transition-all hover:scale-105 group">
+                    <div class="w-12 h-12 rounded-full bg-[#5865F2] flex items-center justify-center text-white">
+                        <i class="fas fa-users fa-lg"></i>
+                    </div>
+                    <div class="text-left">
+                        <h4 class="font-bold text-white text-lg">Community</h4>
+                        <p class="text-brand-light text-sm">Join Server</p>
+                    </div>
+                </a>
+
+                <!-- Email -->
+                <a href="mailto:realpablopebble@gmail.com" aria-label="Email Me" class="flex items-center gap-4 p-4 rounded-xl border border-brand-secondary/30 bg-white/5 hover:bg-brand-primary/20 transition-all hover:scale-105 group">
+                    <div class="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center text-white">
+                        <i class="fas fa-envelope fa-lg"></i>
+                    </div>
+                    <div class="text-left">
+                        <h4 class="font-bold text-white text-lg">Email</h4>
+                        <p class="text-brand-light text-sm truncate w-32">Send Mail</p>
+                    </div>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer py-8 border-t border-brand-primary/20 bg-brand-dark relative z-10">
-        <div class="container mx-auto px-6 text-center">
-            <p class="text-gray-400 text-sm mb-2">&copy; 2025 Foil (Aryansh Rai). All rights reserved.</p>
-            <p class="footer-quote text-brand-secondary italic text-xs mb-4">"Coding let's you convert your imagination into an Art!"</p>
-            <div class="footer-social flex justify-center gap-6">
-                <a href="https://github.com/aryanshrai03" target="_blank" class="text-brand-light hover:text-white transition-colors"><i class="fab fa-github fa-lg"></i></a>
-                <a href="https://discord.com/users/1252101579855630346" target="_blank" class="text-brand-light hover:text-white transition-colors"><i class="fab fa-discord fa-lg"></i></a>
-                <a href="mailto:realpablopebble@gmail.com" class="text-brand-light hover:text-white transition-colors"><i class="fas fa-envelope fa-lg"></i></a>
+    <!-- Call to Action Before Footer -->
+    <div class="relative z-10 py-16 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to build the future?</h2>
+        <p class="text-brand-light mb-8 text-lg">Join thousands of developers creating amazing things.</p>
+        <a href="#contact" aria-label="Start Now" class="bg-white text-brand-primary hover:bg-brand-light px-8 py-3 rounded-full font-bold transition-colors">Get Started</a>
+    </div>
+
+    <!-- Graphy-Style Footer (Brand Themed) -->
+    <footer class="relative z-10 pb-12 pt-4 px-4">
+        <div class="container mx-auto">
+            <div class="bg-brand-primary/20 backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 border border-brand-secondary/20 shadow-2xl">
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                    <!-- Brand Column -->
+                    <div class="lg:col-span-1">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-full overflow-hidden border border-brand-light">
+                                <img src="https://www.aryansh.site/icon.jpg" alt="Foil" class="w-full h-full object-cover">
+                            </div>
+                            <span class="font-bold text-2xl text-white">Foil</span>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                            Foil empowers businesses and individuals to transform raw ideas into clear, compelling AI solutions — making technology easier to use, understand, and act on.
+                        </p>
+                        <div class="flex gap-4">
+                            <a href="https://instagram.com/real.foil" aria-label="Instagram Footer" class="text-brand-light hover:text-white transition-colors text-xl"><i class="fab fa-instagram"></i></a>
+                            <a href="https://github.com/aryanshrai03" aria-label="GitHub Footer" class="text-brand-light hover:text-white transition-colors text-xl"><i class="fab fa-github"></i></a>
+                            <a href="https://discord.gg/QEFytsQPCR" aria-label="Discord Footer" class="text-brand-light hover:text-white transition-colors text-xl"><i class="fab fa-discord"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Links Column 1 -->
+                    <div>
+                        <h4 class="font-bold text-white mb-6">Product</h4>
+                        <ul class="space-y-3 text-sm text-brand-light/80">
+                            <li><a href="#projects" class="hover:text-white transition-colors">FoilAI</a></li>
+                            <li><a href="#projects" class="hover:text-white transition-colors">VroGPT</a></li>
+                            <li><a href="#projects" class="hover:text-white transition-colors">Kala Billa</a></li>
+                            <li><a href="#projects" class="hover:text-white transition-colors">DixoAI</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Links Column 2 -->
+                    <div>
+                        <h4 class="font-bold text-white mb-6">Resources</h4>
+                        <ul class="space-y-3 text-sm text-brand-light/80">
+                            <li><a href="#" class="hover:text-white transition-colors">Documentation</a></li>
+                            <li><a href="#expertise" class="hover:text-white transition-colors">Tech Stack</a></li>
+                            <li><a href="https://github.com/aryanshrai03" class="hover:text-white transition-colors">Source Code</a></li>
+                            <li><a href="https://buymeacoffee.com/aryanshrai" class="hover:text-white transition-colors">Support</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Links Column 3 -->
+                    <div>
+                        <h4 class="font-bold text-white mb-6">Company</h4>
+                        <ul class="space-y-3 text-sm text-brand-light/80">
+                            <li><a href="#about" class="hover:text-white transition-colors">About</a></li>
+                            <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors">Partners</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="border-t border-brand-secondary/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-xs text-gray-400">&copy; 2025 Foil (Aryansh Rai). All rights reserved.</p>
+                    <div class="flex gap-6 text-xs text-brand-light/60">
+                        <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                        <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                        <a href="#home" class="hover:text-white transition-colors flex items-center gap-1">Back to Top <i class="fas fa-arrow-up"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
@@ -669,6 +814,7 @@
                     iconOn.classList.remove('hidden');
                     iconOff.classList.add('hidden');
                     soundToggle.classList.add('bg-brand-primary');
+                    soundToggle.classList.add('text-white');
                 } else {
                     iconOn.classList.add('hidden');
                     iconOff.classList.remove('hidden');
@@ -734,9 +880,24 @@
                 });
             });
 
+            // Back to Top Logic
+            const backToTopBtn = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.remove('translate-y-20', 'opacity-0');
+                } else {
+                    backToTopBtn.classList.add('translate-y-20', 'opacity-0');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
             // Intersection Observer for Reveal Animations
             const observerOptions = {
-                threshold: 0.1
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
             };
 
             const observer = new IntersectionObserver((entries) => {
