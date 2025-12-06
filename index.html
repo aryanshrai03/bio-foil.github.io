@@ -1,193 +1,436 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foil - Full-Stack Developer & AI Innovator</title>
-    <link rel="stylesheet" href="bio.css">
+    <meta name="description" content="Foil (Aryansh Rai) - Full-Stack Developer & AI Innovator based in India. Specializing in AI-powered solutions, SaaS platforms, and Discord bots.">
+    <meta name="keywords" content="Foil, Aryansh Rai, Full-Stack Developer, AI Enthusiast, FoilAI, VroAI, Web Developer India, Portfolio">
+    <meta name="author" content="Aryansh Rai">
+    <meta property="og:title" content="Foil - Full-Stack Developer & AI Innovator">
+    <meta property="og:image" content="https://www.aryansh.site/icon.jpg">
+    <meta property="og:description" content="Explore the portfolio of Aryansh Rai, building the future of AI tools and robust web applications.">
+    
+    <title>Foil | Aryansh Rai - AI Innovator & Developer</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpg" href="https://www.aryansh.site/icon.jpg">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS (via CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#1A2A80',    // Deep Blue
+                            primary: '#3B38A0', // Vibrant Blue
+                            secondary: '#7A85C1', // Soft Blue
+                            light: '#B2B0E8',   // Pale Lavender
+                            accent: '#ffffff'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aryansh Rai",
+      "alternateName": "Foil",
+      "url": "https://foilai.in",
+      "image": "https://www.aryansh.site/icon.jpg",
+      "jobTitle": "Full-Stack Developer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "FoilAI"
+      },
+      "sameAs": [
+        "https://github.com/aryanshrai03",
+        "https://discord.com/users/1252101579855630346"
+      ]
+    }
+    </script>
+
+    <style>
+        /* Custom Utilities & Animations */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #1A2A80;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1A2A80;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #7A85C1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #B2B0E8;
+        }
+
+        /* Enter Screen */
+        .enter-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #1A2A80;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.8s ease-in-out, visibility 0.8s;
+            cursor: pointer;
+        }
+        .enter-content h1 {
+            font-size: 2rem;
+            color: #B2B0E8;
+            animation: pulse 2s infinite;
+            letter-spacing: 2px;
+        }
+
+        /* Glassmorphism Utilities */
+        .glass-panel {
+            background: rgba(59, 56, 160, 0.25);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(178, 176, 232, 0.2);
+        }
+        
+        /* Floating Pill Nav */
+        .floating-nav {
+            background: rgba(26, 42, 128, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(122, 133, 193, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        /* Animated Background Shapes */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .floating-shape {
+            position: absolute;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: blob 10s infinite;
+        }
+        .shape1 { top: -10%; left: -10%; width: 500px; height: 500px; background: #3B38A0; animation-delay: 0s; }
+        .shape2 { bottom: -10%; right: -10%; width: 400px; height: 400px; background: #7A85C1; animation-delay: 2s; }
+        .shape3 { top: 40%; left: 40%; width: 300px; height: 300px; background: #1A2A80; animation-delay: 4s; }
+
+        /* Typing Cursor */
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            background-color: #B2B0E8;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        /* Profile Image Glow */
+        .profile-ring {
+            box-shadow: 0 0 30px rgba(184, 176, 232, 0.4);
+        }
+
+        /* Utility classes for reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
-<body>
-    <audio id="backgroundMusic" loop autoplay>
-    <source src="https://firebasestorage.googleapis.com/v0/b/d2vv-74bf1.appspot.com/o/SpotiDownloader.com%20-%20NEXT!%20-%20NCTS.mp3?alt=media&token=d36a07e2-d42b-40bf-b507-8969ccd62c5b" type="audio/mp3">
-    Your browser does not support the audio element.
-</audio>
+<body class="antialiased selection:bg-brand-secondary selection:text-white">
+
+    <!-- Audio Player -->
+    <audio id="backgroundMusic" loop>
+        <source src="https://firebasestorage.googleapis.com/v0/b/d2vv-74bf1.appspot.com/o/SpotiDownloader.com%20-%20NEXT!%20-%20NCTS.mp3?alt=media&token=d36a07e2-d42b-40bf-b507-8969ccd62c5b" type="audio/mp3">
+    </audio>
+
+    <!-- Click-to-Enter Screen -->
+    <div id="enterScreen" class="enter-screen">
+        <div class="enter-content text-center">
+            <h1>&lt; CLICK TO ENTER /&gt;</h1>
+            <p class="text-brand-secondary mt-2 text-sm tracking-widest">FOIL PORTFOLIO V2.0</p>
+        </div>
+    </div>
 
     <!-- Animated Background -->
     <div class="animated-bg">
-        <div class="floating-shape shape1"></div>
-        <div class="floating-shape shape2"></div>
-        <div class="floating-shape shape3"></div>
-        <div class="floating-shape shape4"></div>
-        <div class="floating-shape shape5"></div>
+        <div class="floating-shape shape1 rounded-full"></div>
+        <div class="floating-shape shape2 rounded-full"></div>
+        <div class="floating-shape shape3 rounded-full"></div>
     </div>
 
-  <!-- Navigation -->
-<nav class="navbar">
-    <div class="nav-container">
-        <div class="logo">
-            <img src="icon.jpg" alt="Foil" class="logo-img">
-            <span>Foil</span>
-            
-            <br>
-            <br>
-        <li class="nav-sound-toggle-wrapper-menu">
-    <button class="nav-sound-toggle" id="soundToggle">
-        <span class="sound-icon sound-on">🔊</span>
-        <span class="sound-icon sound-off">🔇</span>
-        <span class="sound-thumb"></span>
-    </button>
-</li>
-        
-        </div>
-        <ul class="nav-menu">
-            <li><a href="#home" class="nav-link">Home</a></li>
-            <li><a href="#about" class="nav-link">About</a></li>
-            <li><a href="#tech" class="nav-link">Tech Stack</a></li>
-            <li><a href="#projects" class="nav-link">Projects</a></li>
-            <li><a href="#contact" class="nav-link">Contact</a></li>
-            <li class="nav-theme-toggle-wrapper-menu">
-                <button class="nav-theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                    <span class="toggle-icon moon">🌙</span>
-                    <span class="toggle-icon sun">☀️</span>
-                    <span class="toggle-thumb"></span>
-                </button>
-            </li>
-        </ul>
-        <div class="mobile-nav-wrapper">
-            <button class="nav-theme-toggle nav-theme-toggle-mobile" id="themeToggleMobile" aria-label="Toggle theme">
-                <span class="toggle-icon moon">🌙</span>
-                <span class="toggle-icon sun">☀️</span>
-                <span class="toggle-thumb"></span>
-            </button>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+    <!-- Floating Pill Navigation -->
+    <nav class="navbar fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-[90%] max-w-5xl transition-all duration-300">
+        <div class="floating-nav rounded-full px-6 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#home" class="logo flex items-center gap-3 group">
+                <div class="relative w-10 h-10 rounded-full overflow-hidden border-2 border-brand-light">
+                    <img src="https://www.aryansh.site/icon.jpg" alt="Foil" class="w-full h-full object-cover">
+                </div>
+                <span class="font-bold text-xl tracking-wide text-brand-light group-hover:text-white transition-colors">Foil</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <ul class="nav-menu hidden md:flex items-center gap-8 text-sm font-medium text-brand-light/80">
+                <li><a href="#home" class="nav-link hover:text-white hover:scale-105 transition-all">Home</a></li>
+                <li><a href="#about" class="nav-link hover:text-white hover:scale-105 transition-all">About</a></li>
+                <li><a href="#tech" class="nav-link hover:text-white hover:scale-105 transition-all">Stack</a></li>
+                <li><a href="#projects" class="nav-link hover:text-white hover:scale-105 transition-all">Projects</a></li>
+                <li><a href="#contact" class="nav-link hover:text-white hover:scale-105 transition-all">Contact</a></li>
+            </ul>
+
+            <!-- Controls -->
+            <div class="flex items-center gap-4">
+                <!-- Sound Toggle -->
+                <li class="nav-sound-toggle-wrapper-menu list-none">
+                    <button class="nav-sound-toggle w-10 h-10 rounded-full bg-brand-primary/20 flex items-center justify-center hover:bg-brand-primary/40 transition-all border border-brand-secondary/30 text-brand-light" id="soundToggle">
+                        <span class="sound-icon sound-on hidden"><i class="fas fa-volume-up"></i></span>
+                        <span class="sound-icon sound-off"><i class="fas fa-volume-mute"></i></span>
+                    </button>
+                </li>
+                
+                <!-- Theme Toggle (Visual only since design is strictly dark/brand focused) -->
+                <li class="nav-theme-toggle-wrapper-menu list-none hidden">
+                    <button class="nav-theme-toggle" id="themeToggle">
+                        <span class="toggle-icon">🌙</span>
+                    </button>
+                </li>
+
+                <!-- Mobile Hamburger -->
+                <div class="md:hidden mobile-nav-wrapper">
+                    <button class="hamburger text-brand-light text-2xl focus:outline-none">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
-</nav>
-
-<!-- CLICK-TO-ENTER SCREEN -->
-<div id="enterScreen" class="enter-screen">
-    <div class="enter-content">
-        <h1>Click to Enter</h1>
-    </div>
-</div>
+        
+        <!-- Mobile Dropdown -->
+        <div id="mobileMenu" class="hidden absolute top-20 left-0 w-full glass-panel rounded-2xl p-4 flex-col gap-4 text-center md:hidden">
+            <a href="#home" class="block py-2 text-brand-light hover:bg-brand-primary/20 rounded-lg">Home</a>
+            <a href="#about" class="block py-2 text-brand-light hover:bg-brand-primary/20 rounded-lg">About</a>
+            <a href="#tech" class="block py-2 text-brand-light hover:bg-brand-primary/20 rounded-lg">Tech Stack</a>
+            <a href="#projects" class="block py-2 text-brand-light hover:bg-brand-primary/20 rounded-lg">Projects</a>
+            <a href="#contact" class="block py-2 text-brand-light hover:bg-brand-primary/20 rounded-lg">Contact</a>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="profile-image-container">
-                <img src="icon.jpg" alt="Foil" class="profile-img">
-                <div class="profile-ring"></div>
+    <section id="home" class="hero min-h-screen flex items-center justify-center pt-24 relative z-10">
+        <div class="hero-content container mx-auto px-6 text-center">
+            <div class="profile-image-container relative inline-block mb-8 animate-float">
+                <div class="absolute inset-0 bg-brand-primary blur-2xl opacity-40 rounded-full"></div>
+                <img src="https://www.aryansh.site/icon.jpg" alt="Foil" class="profile-img relative w-40 h-40 md:w-52 md:h-52 rounded-full border-4 border-brand-secondary object-cover profile-ring shadow-2xl">
+                <div class="absolute -bottom-2 right-4 bg-green-500 w-6 h-6 rounded-full border-4 border-brand-dark" title="Available for work"></div>
             </div>
-            <h1 class="hero-title">
-                <span class="wave">👋</span> Hey there, I'm <span class="gradient-text">Foil</span>
+            
+            <h1 class="hero-title text-4xl md:text-7xl font-extrabold mb-4 tracking-tight">
+                <span class="wave inline-block hover:animate-spin">👋</span> Hey, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-secondary to-brand-light">Foil</span>
             </h1>
-            <h2 class="hero-subtitle">Aryansh Rai</h2>
-            <div class="typing-container">
-                <span class="typing-text"></span>
-                <span class="cursor">|</span>
+            
+            <h2 class="hero-subtitle text-xl md:text-2xl text-brand-secondary font-medium mb-6">Aryansh Rai</h2>
+            
+            <div class="typing-container h-8 mb-6 text-lg md:text-xl font-mono text-brand-light">
+                <span class="typing-text"></span><span class="cursor">|</span>
             </div>
-            <p class="hero-description">A Full-Stack Developer from India 🇮🇳</p>
-            <p class="hero-focus">Currently focused on building AI-powered tools & Discord bots!</p>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">View Projects</a>
-                <a href="https://github.com/aryanshrai03" target="_blank" class="btn btn-secondary">GitHub Profile</a>
+            
+            <p class="hero-description max-w-2xl mx-auto text-gray-300 text-base md:text-lg mb-8 leading-relaxed">
+                A passionate Full-Stack Developer from India 🇮🇳 specializing in building <span class="text-brand-light font-semibold">Enterprise AI Tools</span>, SaaS platforms, and digital experiences.
+            </p>
+            
+            <div class="hero-buttons flex flex-wrap justify-center gap-4">
+                <a href="#projects" class="btn btn-primary px-8 py-3 rounded-full bg-brand-primary hover:bg-brand-secondary text-white font-bold shadow-lg shadow-brand-primary/30 transition-all transform hover:-translate-y-1">
+                    <i class="fas fa-rocket mr-2"></i> View Projects
+                </a>
+                <a href="https://github.com/aryanshrai03" target="_blank" class="btn btn-secondary px-8 py-3 rounded-full bg-transparent border-2 border-brand-secondary text-brand-light hover:bg-brand-secondary hover:text-white font-bold transition-all transform hover:-translate-y-1">
+                    <i class="fab fa-github mr-2"></i> GitHub Profile
+                </a>
             </div>
-            <div class="scroll-indicator">
-                <i class="fas fa-chevron-down"></i>
+            
+            <div class="scroll-indicator absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-brand-secondary">
+                <i class="fas fa-chevron-down text-2xl"></i>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">
-                <i class="fas fa-user"></i> About Me
-            </h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p class="about-intro">
-                        I'm <strong>Foil (Aryansh Rai)</strong>, a passionate Full-Stack Developer and AI enthusiast based in India.
-                        I specialize in creating innovative AI-powered solutions and building robust web applications.
+    <section id="about" class="about py-20 relative z-10">
+        <div class="container mx-auto px-6">
+            <div class="section-header text-center mb-16 reveal">
+                <h2 class="section-title text-3xl md:text-4xl font-bold text-white mb-4">
+                    <i class="fas fa-user-astronaut text-brand-secondary mr-2"></i> About Me
+                </h2>
+                <div class="w-20 h-1 bg-brand-primary mx-auto rounded-full"></div>
+            </div>
+
+            <div class="about-content grid md:grid-cols-2 gap-12 items-center">
+                <div class="about-text glass-panel p-8 rounded-2xl reveal">
+                    <p class="about-intro text-gray-300 leading-relaxed text-lg mb-6">
+                        I'm <strong>Foil (Aryansh Rai)</strong>, a Full-Stack Developer and AI enthusiast. I don't just write code; I architect solutions that bridge the gap between complex AI logic and user-friendly interfaces.
                     </p>
-                    <div class="achievements">
-                        <div class="achievement-card">
-                            <i class="fas fa-rocket"></i>
-                            <h3>Founder of FoilAI</h3>
-                            <p>AI tool & platform for smart solutions</p>
-                        </div>
-                        <div class="achievement-card">
-                            <i class="fas fa-brain"></i>
-                            <h3>Founder of VroAI</h3>
-                            <p>Advanced AI Chatbot & GPT service</p>
-                        </div>
-                        <div class="achievement-card">
-                            <i class="fas fa-robot"></i>
-                            <h3>Co-Founder KalaBilla</h3>
-                            <p>Powerful Discord bot project</p>
+                    <blockquote class="quote border-l-4 border-brand-secondary pl-4 italic text-brand-light my-6">
+                        "Coding let's you convert your imagination into an Art!"
+                    </blockquote>
+                    <div class="tags flex flex-wrap gap-2 mt-4">
+                        <span class="px-3 py-1 bg-brand-primary/20 text-brand-light rounded-full text-xs border border-brand-primary/30">#Innovation</span>
+                        <span class="px-3 py-1 bg-brand-primary/20 text-brand-light rounded-full text-xs border border-brand-primary/30">#AI_Revolution</span>
+                        <span class="px-3 py-1 bg-brand-primary/20 text-brand-light rounded-full text-xs border border-brand-primary/30">#FullStack</span>
+                    </div>
+                </div>
+
+                <div class="achievements grid gap-4 reveal">
+                    <div class="achievement-card bg-gradient-to-r from-brand-primary/10 to-brand-dark p-6 rounded-xl border border-brand-primary/30 hover:border-brand-light transition-all group">
+                        <div class="flex items-start gap-4">
+                            <div class="icon-box p-3 bg-brand-primary/20 rounded-lg text-brand-light group-hover:scale-110 transition-transform">
+                                <i class="fas fa-rocket fa-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white text-lg">Founder of FoilAI</h3>
+                                <p class="text-sm text-gray-400">AI tool & platform for smart solutions.</p>
+                            </div>
                         </div>
                     </div>
-                    <blockquote class="quote">
-                        <i class="fas fa-quote-left"></i>
-                        Coding let's you convert your imagination into an Art!
-                        <i class="fas fa-quote-right"></i>
-                    </blockquote>
+
+                    <div class="achievement-card bg-gradient-to-r from-brand-primary/10 to-brand-dark p-6 rounded-xl border border-brand-primary/30 hover:border-brand-light transition-all group">
+                        <div class="flex items-start gap-4">
+                            <div class="icon-box p-3 bg-brand-primary/20 rounded-lg text-brand-light group-hover:scale-110 transition-transform">
+                                <i class="fas fa-brain fa-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white text-lg">Founder of VroAI</h3>
+                                <p class="text-sm text-gray-400">Advanced AI Chatbot & GPT services.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="achievement-card bg-gradient-to-r from-brand-primary/10 to-brand-dark p-6 rounded-xl border border-brand-primary/30 hover:border-brand-light transition-all group">
+                        <div class="flex items-start gap-4">
+                            <div class="icon-box p-3 bg-brand-primary/20 rounded-lg text-brand-light group-hover:scale-110 transition-transform">
+                                <i class="fas fa-robot fa-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white text-lg">Co-Founder KalaBilla</h3>
+                                <p class="text-sm text-gray-400">High-performance Discord bot infrastructure.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Tech Stack Section -->
-    <section id="tech" class="tech-stack">
-        <div class="container">
-            <h2 class="section-title">
-                <i class="fas fa-code"></i> Tech Stack
+    <section id="tech" class="tech-stack py-20 bg-brand-dark/50 relative z-10">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-3xl md:text-4xl font-bold text-white mb-12 text-center reveal">
+                <i class="fas fa-layer-group text-brand-secondary mr-2"></i> Tech Arsenal
             </h2>
-            <div class="tech-content">
-                <div class="tech-category">
-                    <h3 class="tech-category-title">
-                        <i class="fas fa-star"></i> Expert In
+            
+            <div class="tech-content grid md:grid-cols-2 gap-12">
+                <!-- Expert In -->
+                <div class="tech-category reveal">
+                    <h3 class="text-xl font-bold text-brand-light mb-6 flex items-center">
+                        <i class="fas fa-star mr-2 text-yellow-400"></i> Core Technologies
                     </h3>
-                    <div class="tech-grid">
-                        <div class="tech-card" data-tech="html">
-                            <i class="fab fa-html5"></i>
-                            <span>HTML5</span>
+                    <div class="grid grid-cols-3 sm:grid-cols-4 gap-4">
+                        <div class="tech-card p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-brand-primary/30 hover:border-brand-light transition-all text-center group cursor-default">
+                            <i class="fab fa-html5 text-3xl text-orange-500 mb-2 group-hover:scale-110 transition-transform"></i>
+                            <span class="block text-xs font-medium text-gray-300">HTML5</span>
                         </div>
-                        <div class="tech-card" data-tech="css">
-                            <i class="fab fa-css3-alt"></i>
-                            <span>CSS3</span>
+                        <div class="tech-card p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-brand-primary/30 hover:border-brand-light transition-all text-center group cursor-default">
+                            <i class="fab fa-css3-alt text-3xl text-blue-500 mb-2 group-hover:scale-110 transition-transform"></i>
+                            <span class="block text-xs font-medium text-gray-300">CSS3</span>
                         </div>
-                        <div class="tech-card" data-tech="javascript">
-                            <i class="fab fa-js"></i>
-                            <span>JavaScript</span>
+                        <div class="tech-card p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-brand-primary/30 hover:border-brand-light transition-all text-center group cursor-default">
+                            <i class="fab fa-js text-3xl text-yellow-400 mb-2 group-hover:scale-110 transition-transform"></i>
+                            <span class="block text-xs font-medium text-gray-300">JS</span>
                         </div>
-                        <div class="tech-card" data-tech="php">
-                            <i class="fab fa-php"></i>
-                            <span>PHP</span>
+                        <div class="tech-card p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-brand-primary/30 hover:border-brand-light transition-all text-center group cursor-default">
+                            <i class="fab fa-php text-3xl text-purple-400 mb-2 group-hover:scale-110 transition-transform"></i>
+                            <span class="block text-xs font-medium text-gray-300">PHP</span>
                         </div>
-                        <div class="tech-card" data-tech="sql">
-                            <i class="fas fa-database"></i>
-                            <span>SQL</span>
+                        <div class="tech-card p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-brand-primary/30 hover:border-brand-light transition-all text-center group cursor-default">
+                            <i class="fas fa-database text-3xl text-brand-secondary mb-2 group-hover:scale-110 transition-transform"></i>
+                            <span class="block text-xs font-medium text-gray-300">SQL</span>
+                        </div>
+                        <div class="tech-card p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-brand-primary/30 hover:border-brand-light transition-all text-center group cursor-default">
+                            <i class="fab fa-uikit text-3xl text-cyan-400 mb-2 group-hover:scale-110 transition-transform"></i>
+                            <span class="block text-xs font-medium text-gray-300">Tailwind</span>
                         </div>
                     </div>
                 </div>
-                <div class="tech-category">
-                    <h3 class="tech-category-title">
-                        <i class="fas fa-graduation-cap"></i> Currently Learning
+
+                <!-- Learning -->
+                <div class="tech-category reveal">
+                    <h3 class="text-xl font-bold text-brand-light mb-6 flex items-center">
+                        <i class="fas fa-flask mr-2 text-green-400"></i> Exploring & Evolving
                     </h3>
-                    <div class="tech-grid">
-                        <div class="tech-card" data-tech="nodejs">
-                            <i class="fab fa-node-js"></i>
-                            <span>Node.js</span>
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="tech-card p-4 rounded-xl bg-white/5 border border-dashed border-white/20 hover:border-solid hover:border-green-400 transition-all text-center group">
+                            <i class="fab fa-node-js text-3xl text-green-500 mb-2 group-hover:rotate-12 transition-transform"></i>
+                            <span class="block text-xs font-medium text-gray-300">Node.js</span>
                         </div>
-                        <div class="tech-card" data-tech="python">
-                            <i class="fab fa-python"></i>
-                            <span>Python</span>
+                        <div class="tech-card p-4 rounded-xl bg-white/5 border border-dashed border-white/20 hover:border-solid hover:border-yellow-400 transition-all text-center group">
+                            <i class="fab fa-python text-3xl text-yellow-300 mb-2 group-hover:rotate-12 transition-transform"></i>
+                            <span class="block text-xs font-medium text-gray-300">Python</span>
+                        </div>
+                        <div class="tech-card p-4 rounded-xl bg-white/5 border border-dashed border-white/20 hover:border-solid hover:border-blue-400 transition-all text-center group">
+                            <i class="fas fa-cubes text-3xl text-blue-300 mb-2 group-hover:rotate-12 transition-transform"></i>
+                            <span class="block text-xs font-medium text-gray-300">LLMs</span>
                         </div>
                     </div>
                 </div>
@@ -196,191 +439,318 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">
-                <i class="fas fa-rocket"></i> Featured Projects
+    <section id="projects" class="projects py-20 relative z-10">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-3xl md:text-4xl font-bold text-white mb-2 text-center reveal">
+                <i class="fas fa-code-branch text-brand-secondary mr-2"></i> Featured Projects
             </h2>
-            <p class="section-subtitle">Explore my latest work and innovations</p>
-            <div class="projects-grid">
-                <div class="project-card" data-project="1">
-                    <div class="project-icon">
-                        <i class="fas fa-brain"></i>
+            <p class="section-subtitle text-center text-gray-400 mb-12 reveal">Innovations in AI, Automation, and Web Technology</p>
+
+            <div class="projects-grid grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1 -->
+                <div class="project-card group glass-panel rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 reveal">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-brand-primary/30 rounded-lg text-brand-light">
+                            <i class="fas fa-brain fa-xl"></i>
+                        </div>
+                        <a href="https://foilai.in" target="_blank" class="text-gray-400 hover:text-white"><i class="fas fa-external-link-alt"></i></a>
                     </div>
-                    <h3 class="project-title">FoilAI</h3>
-                    <p class="project-description">AI tool & platform for smart solutions - Building the future of AI-powered applications</p>
-                    <div class="project-tags">
-                        <span class="tag">AI</span>
-                        <span class="tag">Platform</span>
-                        <span class="tag">Innovation</span>
+                    <h3 class="text-xl font-bold text-white mb-2">FoilAI</h3>
+                    <p class="text-gray-400 text-sm mb-4 h-16 overflow-hidden">AI platform for smart solutions - Building the future of AI-powered applications.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs px-2 py-1 rounded bg-brand-dark text-brand-secondary border border-brand-primary/20">AI</span>
+                        <span class="text-xs px-2 py-1 rounded bg-brand-dark text-brand-secondary border border-brand-primary/20">SaaS</span>
                     </div>
-                    <a href="https://foilai.in" target="_blank" class="project-link">
-                        Visit Site <i class="fas fa-external-link-alt"></i>
-                    </a>
                 </div>
 
-                <div class="project-card" data-project="2">
-                    <div class="project-icon">
-                        <i class="fas fa-comments"></i>
+                <!-- Project 2 -->
+                <div class="project-card group glass-panel rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 reveal">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-brand-primary/30 rounded-lg text-brand-light">
+                            <i class="fas fa-comments fa-xl"></i>
+                        </div>
+                        <a href="https://gpt.vroai.in" target="_blank" class="text-gray-400 hover:text-white"><i class="fas fa-external-link-alt"></i></a>
                     </div>
-                    <h3 class="project-title">VroGPT</h3>
-                    <p class="project-description">Advanced AI Chatbot & GPT service - Experience next-gen conversational AI</p>
-                    <div class="project-tags">
-                        <span class="tag">GPT</span>
-                        <span class="tag">Chatbot</span>
-                        <span class="tag">AI</span>
+                    <h3 class="text-xl font-bold text-white mb-2">VroGPT</h3>
+                    <p class="text-gray-400 text-sm mb-4 h-16 overflow-hidden">Advanced AI Chatbot & GPT service - Experience next-gen conversational AI.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs px-2 py-1 rounded bg-brand-dark text-brand-secondary border border-brand-primary/20">LLM</span>
+                        <span class="text-xs px-2 py-1 rounded bg-brand-dark text-brand-secondary border border-brand-primary/20">Chatbot</span>
                     </div>
-                    <a href="https://gpt.vroai.in" target="_blank" class="project-link">
-                        Visit Site <i class="fas fa-external-link-alt"></i>
-                    </a>
                 </div>
 
-                <div class="project-card" data-project="3">
-                    <div class="project-icon">
-                        <i class="fab fa-discord"></i>
+                <!-- Project 3 -->
+                <div class="project-card group glass-panel rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 reveal">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-brand-primary/30 rounded-lg text-brand-light">
+                            <i class="fab fa-discord fa-xl"></i>
+                        </div>
+                        <a href="https://kalabilla.in" target="_blank" class="text-gray-400 hover:text-white"><i class="fas fa-external-link-alt"></i></a>
                     </div>
-                    <h3 class="project-title">Kala Billa Bot</h3>
-                    <p class="project-description">Powerful Discord bot project - Enhance your Discord server with advanced features</p>
-                    <div class="project-tags">
-                        <span class="tag">Discord</span>
-                        <span class="tag">Bot</span>
-                        <span class="tag">Community</span>
+                    <h3 class="text-xl font-bold text-white mb-2">Kala Billa Bot</h3>
+                    <p class="text-gray-400 text-sm mb-4 h-16 overflow-hidden">Powerful Discord bot project - Enhance your Discord server with advanced features.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs px-2 py-1 rounded bg-brand-dark text-brand-secondary border border-brand-primary/20">Discord.js</span>
+                        <span class="text-xs px-2 py-1 rounded bg-brand-dark text-brand-secondary border border-brand-primary/20">Bot</span>
                     </div>
-                    <a href="https://kalabilla.in" target="_blank" class="project-link">
-                        Visit Site <i class="fas fa-external-link-alt"></i>
-                    </a>
                 </div>
 
-                <div class="project-card" data-project="4">
-                    <div class="project-icon">
-                        <i class="fas fa-book-open"></i>
+                <!-- Project 4 -->
+                <div class="project-card group glass-panel rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 reveal">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-brand-primary/30 rounded-lg text-brand-light">
+                            <i class="fas fa-book-open fa-xl"></i>
+                        </div>
+                        <a href="https://dfamo.co.uk" target="_blank" class="text-gray-400 hover:text-white"><i class="fas fa-external-link-alt"></i></a>
                     </div>
-                    <h3 class="project-title">DfamoAI</h3>
-                    <p class="project-description">Homework helper AI Chatbot - Your intelligent study companion</p>
-                    <div class="project-tags">
-                        <span class="tag">Education</span>
-                        <span class="tag">AI Helper</span>
-                        <span class="tag">Students</span>
+                    <h3 class="text-xl font-bold text-white mb-2">DfamoAI</h3>
+                    <p class="text-gray-400 text-sm mb-4 h-16 overflow-hidden">Homework helper AI Chatbot - Your intelligent study companion.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs px-2 py-1 rounded bg-brand-dark text-brand-secondary border border-brand-primary/20">EdTech</span>
+                        <span class="text-xs px-2 py-1 rounded bg-brand-dark text-brand-secondary border border-brand-primary/20">Helper</span>
                     </div>
-                    <a href="https://dfamo.co.uk" target="_blank" class="project-link">
-                        Visit Site <i class="fas fa-external-link-alt"></i>
-                    </a>
                 </div>
 
-                <div class="project-card" data-project="5">
-                    <div class="project-icon">
-                        <i class="fas fa-code"></i>
+                <!-- Project 5 -->
+                <div class="project-card group glass-panel rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 reveal">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-brand-primary/30 rounded-lg text-brand-light">
+                            <i class="fas fa-code fa-xl"></i>
+                        </div>
+                        <a href="https://tinymark-lang.page.gd" target="_blank" class="text-gray-400 hover:text-white"><i class="fas fa-external-link-alt"></i></a>
                     </div>
-                    <h3 class="project-title">Tinymark</h3>
-                    <p class="project-description">Coding language - A powerful and intuitive programming language</p>
-                    <div class="project-tags">
-                        <span class="tag">Language</span>
-                        <span class="tag">Compiler</span>
-                        <span class="tag">Dev Tool</span>
+                    <h3 class="text-xl font-bold text-white mb-2">Tinymark</h3>
+                    <p class="text-gray-400 text-sm mb-4 h-16 overflow-hidden">Custom coding language - A powerful and intuitive programming language concept.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs px-2 py-1 rounded bg-brand-dark text-brand-secondary border border-brand-primary/20">Compiler</span>
+                        <span class="text-xs px-2 py-1 rounded bg-brand-dark text-brand-secondary border border-brand-primary/20">Lang</span>
                     </div>
-                    <a href="https://tinymark-lang.page.gd" target="_blank" class="project-link">
-                        Visit Site <i class="fas fa-external-link-alt"></i>
-                    </a>
                 </div>
 
-                <div class="project-card" data-project="6">
-                    <div class="project-icon">
-                        <i class="fas fa-pen-fancy"></i>
+                <!-- Project 6 -->
+                <div class="project-card group glass-panel rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 reveal">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-brand-primary/30 rounded-lg text-brand-light">
+                            <i class="fas fa-pen-fancy fa-xl"></i>
+                        </div>
+                        <a href="https://dixo.foilai.in" target="_blank" class="text-gray-400 hover:text-white"><i class="fas fa-external-link-alt"></i></a>
                     </div>
-                    <h3 class="project-title">Foil DixoAI</h3>
-                    <p class="project-description">AI Diary Writer - Your personal AI-powered journal companion</p>
-                    <div class="project-tags">
-                        <span class="tag">Diary</span>
-                        <span class="tag">AI Writer</span>
-                        <span class="tag">Personal</span>
+                    <h3 class="text-xl font-bold text-white mb-2">Foil DixoAI</h3>
+                    <p class="text-gray-400 text-sm mb-4 h-16 overflow-hidden">AI Diary Writer - Your personal AI-powered journal companion.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs px-2 py-1 rounded bg-brand-dark text-brand-secondary border border-brand-primary/20">NLP</span>
+                        <span class="text-xs px-2 py-1 rounded bg-brand-dark text-brand-secondary border border-brand-primary/20">Journal</span>
                     </div>
-                    <a href="https://dixo.foilai.in" target="_blank" class="project-link">
-                        Visit Site <i class="fas fa-external-link-alt"></i>
-                    </a>
                 </div>
 
-                <div class="project-card" data-project="7">
-                    <div class="project-icon">
-                        <i class="fas fa-server"></i>
+                <!-- Project 7 -->
+                <div class="project-card group glass-panel rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 reveal">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-brand-primary/30 rounded-lg text-brand-light">
+                            <i class="fas fa-server fa-xl"></i>
+                        </div>
+                        <a href="https://hostmy.xo.je" target="_blank" class="text-gray-400 hover:text-white"><i class="fas fa-external-link-alt"></i></a>
                     </div>
-                    <h3 class="project-title">HostMy - Tools</h3>
-                    <p class="project-description">Instantly host your HTML pages or PDF files - Simple and fast hosting solution</p>
-                    <div class="project-tags">
-                        <span class="tag">Hosting</span>
-                        <span class="tag">Tools</span>
-                        <span class="tag">Instant</span>
+                    <h3 class="text-xl font-bold text-white mb-2">HostMy Tools</h3>
+                    <p class="text-gray-400 text-sm mb-4 h-16 overflow-hidden">Instantly host your HTML pages or PDF files - Simple and fast.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs px-2 py-1 rounded bg-brand-dark text-brand-secondary border border-brand-primary/20">Utility</span>
+                        <span class="text-xs px-2 py-1 rounded bg-brand-dark text-brand-secondary border border-brand-primary/20">Hosting</span>
                     </div>
-                    <a href="https://hostmy.xo.je" target="_blank" class="project-link">
-                        Visit Site <i class="fas fa-external-link-alt"></i>
-                    </a>
                 </div>
+
             </div>
         </div>
     </section>
 
     <!-- Stats Section -->
-    <section id="stats" class="stats">
-        <div class="container">
-            <h2 class="section-title">
-                <i class="fas fa-chart-line"></i> GitHub Stats
+    <section id="stats" class="stats py-20 bg-brand-dark/50 relative z-10">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-3xl font-bold text-white mb-12 text-center reveal">
+                <i class="fas fa-chart-line text-brand-secondary mr-2"></i> Activity Log
             </h2>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=aryanshrai03&theme=tokyonight" alt="GitHub Profile Details" loading="lazy">
+            <div class="stats-grid flex flex-col md:flex-row justify-center items-center gap-6 reveal">
+                <div class="stat-card hover:scale-105 transition-transform duration-300">
+                    <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=aryanshrai03&theme=tokyonight" alt="GitHub Profile Details" loading="lazy" class="rounded-xl shadow-lg border border-brand-primary/30">
                 </div>
-                <div class="stat-card">
-                    <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=aryanshrai03&theme=tokyonight" alt="Top Languages" loading="lazy">
+                <div class="stat-card hover:scale-105 transition-transform duration-300">
+                    <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=aryanshrai03&theme=tokyonight" alt="Top Languages" loading="lazy" class="rounded-xl shadow-lg border border-brand-primary/30">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">
-                <i class="fas fa-envelope"></i> Connect With Me
+    <section id="contact" class="contact py-20 relative z-10">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="section-title text-3xl md:text-4xl font-bold text-white mb-4 reveal">
+                <i class="fas fa-paper-plane text-brand-secondary mr-2"></i> Get In Touch
             </h2>
-            <p class="section-subtitle">Let's build something amazing together!</p>
-            <div class="contact-grid">
-                <a href="https://github.com/aryanshrai03" target="_blank" class="contact-card">
-                    <div class="contact-icon">
+            <p class="section-subtitle text-gray-400 mb-12 reveal">Have an idea? Let's build something amazing together!</p>
+            
+            <div class="contact-grid grid md:grid-cols-3 gap-6 max-w-4xl mx-auto reveal">
+                <a href="https://github.com/aryanshrai03" target="_blank" class="contact-card glass-panel p-8 rounded-2xl hover:bg-brand-primary/20 transition-all group">
+                    <div class="contact-icon text-4xl text-brand-light mb-4 group-hover:scale-110 transition-transform">
                         <i class="fab fa-github"></i>
                     </div>
-                    <h3>GitHub</h3>
-                    <p>@aryanshrai03</p>
+                    <h3 class="font-bold text-lg text-white">GitHub</h3>
+                    <p class="text-brand-secondary text-sm">@aryanshrai03</p>
                 </a>
-                <a href="https://discord.com/users/1252101579855630346" target="_blank" class="contact-card">
-                    <div class="contact-icon">
+                
+                <a href="https://discord.com/users/1252101579855630346" target="_blank" class="contact-card glass-panel p-8 rounded-2xl hover:bg-brand-primary/20 transition-all group">
+                    <div class="contact-icon text-4xl text-brand-light mb-4 group-hover:scale-110 transition-transform">
                         <i class="fab fa-discord"></i>
                     </div>
-                    <h3>Discord</h3>
-                    <p>Join my server</p>
+                    <h3 class="font-bold text-lg text-white">Discord</h3>
+                    <p class="text-brand-secondary text-sm">Join Server</p>
                 </a>
-                <a href="mailto:realpablopebble@gmail.com" class="contact-card">
-                    <div class="contact-icon">
+                
+                <a href="mailto:realpablopebble@gmail.com" class="contact-card glass-panel p-8 rounded-2xl hover:bg-brand-primary/20 transition-all group">
+                    <div class="contact-icon text-4xl text-brand-light mb-4 group-hover:scale-110 transition-transform">
                         <i class="fas fa-envelope"></i>
                     </div>
-                    <h3>Email</h3>
-                    <p>realpablopebble@gmail.com</p>
+                    <h3 class="font-bold text-lg text-white">Email</h3>
+                    <p class="text-brand-secondary text-sm break-all">realpablopebble@gmail.com</p>
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Foil (Aryansh Rai). All rights reserved.</p>
-            <p class="footer-quote">Coding let's you convert your imagination into an Art!</p>
-            <div class="footer-social">
-                <a href="https://github.com/aryanshrai03" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://discord.com/users/1252101579855630346" target="_blank" aria-label="Discord"><i class="fab fa-discord"></i></a>
-                <a href="mailto:realpablopebble@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    <footer class="footer py-8 border-t border-brand-primary/20 bg-brand-dark relative z-10">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400 text-sm mb-2">&copy; 2025 Foil (Aryansh Rai). All rights reserved.</p>
+            <p class="footer-quote text-brand-secondary italic text-xs mb-4">"Coding let's you convert your imagination into an Art!"</p>
+            <div class="footer-social flex justify-center gap-6">
+                <a href="https://github.com/aryanshrai03" target="_blank" class="text-brand-light hover:text-white transition-colors"><i class="fab fa-github fa-lg"></i></a>
+                <a href="https://discord.com/users/1252101579855630346" target="_blank" class="text-brand-light hover:text-white transition-colors"><i class="fab fa-discord fa-lg"></i></a>
+                <a href="mailto:realpablopebble@gmail.com" class="text-brand-light hover:text-white transition-colors"><i class="fas fa-envelope fa-lg"></i></a>
             </div>
         </div>
     </footer>
 
-    <script src="bio.js"></script>
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Audio Logic
+            const audio = document.getElementById('backgroundMusic');
+            const enterScreen = document.getElementById('enterScreen');
+            const soundToggle = document.getElementById('soundToggle');
+            const iconOn = soundToggle.querySelector('.sound-on');
+            const iconOff = soundToggle.querySelector('.sound-off');
+            let isPlaying = false;
+
+            // Enter Screen Interaction
+            enterScreen.addEventListener('click', () => {
+                enterScreen.style.opacity = '0';
+                enterScreen.style.visibility = 'hidden';
+                // Try to play audio
+                audio.volume = 0.4;
+                audio.play().then(() => {
+                    isPlaying = true;
+                    updateSoundIcon();
+                }).catch(err => console.log("Audio autoplay prevented by browser policy"));
+            });
+
+            // Sound Toggle
+            soundToggle.addEventListener('click', () => {
+                if (isPlaying) {
+                    audio.pause();
+                } else {
+                    audio.play();
+                }
+                isPlaying = !isPlaying;
+                updateSoundIcon();
+            });
+
+            function updateSoundIcon() {
+                if (isPlaying) {
+                    iconOn.classList.remove('hidden');
+                    iconOff.classList.add('hidden');
+                    soundToggle.classList.add('bg-brand-primary');
+                } else {
+                    iconOn.classList.add('hidden');
+                    iconOff.classList.remove('hidden');
+                    soundToggle.classList.remove('bg-brand-primary');
+                }
+            }
+
+            // Typing Effect
+            const texts = ["Full-Stack Developer", "AI Enthusiast", "Discord Bot Developer", "Tech Innovator"];
+            let count = 0;
+            let index = 0;
+            let currentText = "";
+            let letter = "";
+            let isDeleting = false;
+            
+            (function type() {
+                if (count === texts.length) {
+                    count = 0;
+                }
+                currentText = texts[count];
+
+                if (isDeleting) {
+                    letter = currentText.slice(0, --index);
+                } else {
+                    letter = currentText.slice(0, ++index);
+                }
+
+                document.querySelector('.typing-text').textContent = letter;
+
+                let typeSpeed = 100;
+                if(isDeleting) typeSpeed = 50;
+
+                if (!isDeleting && letter.length === currentText.length) {
+                    typeSpeed = 2000; // Pause at end
+                    isDeleting = true;
+                } else if (isDeleting && letter.length === 0) {
+                    isDeleting = false;
+                    count++;
+                    typeSpeed = 500; // Pause before new word
+                }
+
+                setTimeout(type, typeSpeed);
+            })();
+
+            // Mobile Menu
+            const hamburger = document.querySelector('.hamburger');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            hamburger.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('flex');
+            });
+
+            // Smooth Scroll & Close Menu
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Intersection Observer for Reveal Animations
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
 </html>
